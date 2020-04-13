@@ -54,8 +54,8 @@ t2 = Ticket.create(
 
 # BDO has some carpet samples coming in to East Village
 t3 = Ticket.create(
-  client_id: bdo.id,
-  pickup_address: bdo.address,
+  client_id: bdc.id,
+  pickup_address: bdc.address,
   dropoff_address: '25 Ave. A, New York, NY',
   oversize: true,
   rush: false,
