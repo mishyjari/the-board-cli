@@ -28,4 +28,8 @@ class Courier < ActiveRecord::Base
       t.time_ordered > first && t.time_ordered < last
     end
   end
+
+  def clear_couriers
+  end
+
 end
