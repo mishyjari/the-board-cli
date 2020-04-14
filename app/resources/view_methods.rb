@@ -1,5 +1,14 @@
 require_relative "../../config/environment.rb"
 
+def header
+  puts "####### ##   ## #######  ######    ###      #    #####  #####" 
+  puts "  ##    ##   ## ##       ##   ## ##   ##   # #   ##   # ##   #"
+  puts "  ##    ####### ####     ## ###  ##   ##  #####  ###### ##   ##"
+  puts "  ##    ##   ## ##       ##   ## ##   ## ##   ## ##  #  ##   #"
+  puts "  ##    ##   ## #######  ######    ###   ##   ## ##   # #####"
+  puts "######################   #{Time.now.to_date}   #########################"
+end
+
 def list_all_clients
   puts "\n"
   Client.all.each do |c|
