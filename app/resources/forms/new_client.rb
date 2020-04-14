@@ -1,5 +1,5 @@
 # CLI Tool to Create New Client Instance
-require_relative "../../config/environment.rb"
+require_relative "../../../config/environment.rb"
 
 def new_client_form
   puts "Create New Client Tool\n"
@@ -49,7 +49,7 @@ def new_client_form
 
   case res
   when 'y'
-    c = Client.create(name: name, 
+    c = Client.create(name: name,
                   address: addr,
                   contact_person: person,
                   contact_phone: phone)

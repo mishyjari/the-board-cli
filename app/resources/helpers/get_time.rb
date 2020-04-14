@@ -1,4 +1,4 @@
-require_relative "../../config/environment.rb"
+require_relative "../../../config/environment.rb"
 
 # A CLI tool to prompt user for datetime info and return a datetime object.
 # Throws out of range error when trying to initialize time instance with hours and minutes (date alone works)
@@ -42,4 +42,3 @@ def get_time_obj
   #binding.pry
   #Time.new(y,m,d,h,m)
 end
-

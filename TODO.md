@@ -41,7 +41,7 @@
 - Make sure time defaults to localtime not UTC
 x Clear the terminal in between displays (puts `clear`)
 - Try to find a gem that listens for keyboard events
-- Factor out menu and view files based on board
+x Factor out menu and view files based on board
 - Write display method that prints input at a certain length (determined by arg)
 
 **Head**
@@ -79,7 +79,7 @@ x Default to menu only
 	- Switch to client board
 	- Switch to courier board
 	- refresh this board
-	- Main menu 
+	- Main menu
 	- Exit
 
 	*Ticket Detail View*
@@ -104,7 +104,7 @@ x Default to menu only
 	- Impliment *Completed, incomplete and unassigned tickets* options
 	- Impliiment *Accept Job*
 		- Switches status from 'pending' to 'incomplete' without assigning it
-	
+
 	*List Tickets*
 	- Make it as DRY as possible, ONE method that can be passed args
 	- Should be more compact, 2-3 lines each, max
@@ -154,4 +154,3 @@ x Default to menu only
 	- Client list
 		- Add address and num incomplete packages
 	- *Impliment search by name*
-
