@@ -1,6 +1,6 @@
 require_relative '../../../config/environment.rb'
 
-# This form is for clients' use to be able to create a new ticket instance.
+# Pretty much just waiting on the time helper method to work before building this out.
 
 def client_ticket_form
   puts "You can use this form to make a new delivery request."
