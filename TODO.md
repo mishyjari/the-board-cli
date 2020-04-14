@@ -39,7 +39,7 @@
 
 **General**
 - Make sure time defaults to localtime not UTC
-- Clear the terminal in between displays (puts `clear`)
+x Clear the terminal in between displays (puts `clear`)
 - Try to find a gem that listens for keyboard events
 - Factor out menu and view files based on board
 - Write display method that prints input at a certain length (determined by arg)
@@ -67,7 +67,7 @@ x Add carrot
 
 **Ticket Board**
 - Make header prettier
-- Default to menu only
+x Default to menu only
 - Add carrot
 - Restructure menu
 	- Ticket details by id
@@ -83,7 +83,7 @@ x Add carrot
 	- Exit
 
 	*Ticket Detail View*
-		- Remove double display of ticket
+		x Remove double display of ticket
 		- Add line for each attribute
 		- Reformat time displays
 		- *Assign Courier*
@@ -115,7 +115,7 @@ x Add carrot
 		- Should have prev/next options if applicable
 
 **Courier Board**
-	- Default to menu only (not list)
+	x Default to menu only (not list)
 	- Build out menu options
 		- List active couriers
 		- List all couriers
