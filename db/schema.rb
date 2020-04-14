@@ -10,11 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_001040) do
+ActiveRecord::Schema.define(version: 2020_04_14_024355) do
 
   create_table "clients", force: :cascade do |t|
     t.string "name"
     t.string "address"
+    t.string "contact_person"
+    t.string "contact_phone"
   end
 
   create_table "couriers", force: :cascade do |t|
@@ -38,6 +40,9 @@ ActiveRecord::Schema.define(version: 2020_04_14_001040) do
     t.boolean "oversize"
     t.integer "client_id"
     t.integer "courier_id"
+    t.string "pickup_contact"
+    t.string "dropoff_contact"
+    t.string "notes"
   end
 
 end
