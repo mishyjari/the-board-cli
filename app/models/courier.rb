@@ -30,6 +30,11 @@ class Courier < ActiveRecord::Base
   end
 
   def clear_couriers
+
+  end
+
+  def last_drop
+
   end
 
 end
