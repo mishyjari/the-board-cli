@@ -31,8 +31,10 @@ class Courier < ActiveRecord::Base
     end
   end
 
-  def clear_couriers
-
+  def self.clear_couriers
+    Courier.all.select do |c|
+      c.incomplete_tickets_by_courier.length == 0
+    end
   end
 
   def last_drop

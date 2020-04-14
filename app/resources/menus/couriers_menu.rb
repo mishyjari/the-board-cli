@@ -1,9 +1,9 @@
 require_relative "../../../config/environment.rb"
 
 def courier_board_menu
-  clear_screen
   puts "\nCOURIER BOARD\n"
   puts "\nOPTIONS"
+  puts "[:id] View Courier by ID"
   puts "[c] LIST Active Couriers"
   puts "[a] List ALL Couriers"
   puts "[r] List CLEAR Couriers"
@@ -22,21 +22,18 @@ def courier_board_menu
   case res
   when "c"
     # Active Couriers
-    puts "Feature not implemented. Press Enter to continue"
-    gets.chomp
     clear_screen
+    list_couriers('active')
     courier_board_menu
   when "a"
     # All Couriers
-    puts "Feature not implemented. Press Enter to continue"
-    gets.chomp
     clear_screen
+    list_couriers('all')
     courier_board_menu
   when "r"
     # Clear Couriers
-    puts "Feature not implemented. Press Enter to continue"
-    gets.chomp
     clear_screen
+    list_couriers('clear')
     courier_board_menu
   when "n"
     # New Courier
@@ -55,9 +52,15 @@ def courier_board_menu
   when "x"
     exit
   else
-    puts "Invalid entry, press enter and retry"
-    gets.chomp
-    clear_screen
-    courier_board_menu
+    begin
+      c = Courier.find(res.to_i)
+      clear_screen
+      courier_details(c)
+      courier_detail_menu(c)
+    rescue
+      clear_screen
+      puts "Invalid entry, try again!"
+      courier_board_menu
+    end
   end
 end

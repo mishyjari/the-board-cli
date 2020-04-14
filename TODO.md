@@ -22,7 +22,7 @@
 
 **Ticket**
 	.tickets_today_all
-	.tickets_today_completedhttps://wework.zoom.us/j/97345049841?pwd=VVh4aGRkV0JZV09Ga0pValRFUUtJZz09&status=success
+	.tickets_today_completed
 	.tickets_by_date_range(d1,d2)
 	#is_late?
 	#is_rush?

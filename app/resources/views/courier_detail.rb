@@ -1,5 +1,12 @@
 require_relative "../../../config/environment.rb"
 
+def courier_details(c)
+  puts "\nDETAILS FOR COURIER #{c.id}: #{c.name}"
+  puts "  Holding now (not implemented)"
+  puts "  Packages today (not implemented)"
+  puts "  Late pkgs if late pkgs (not implemented)"
+  puts "  List of incomplete tickets (not implemented)\n\n"
+end
 
 # These methods should be factored out as much as possible to instead use instance methods.
 def assign_ticket(t)
