@@ -1,4 +1,3 @@
-require_relative "./view_methods.rb"
 require_relative "../config/environment.rb"
 
 puts "############### WELCOME TO _THE BOARD_ ################\n\n"
