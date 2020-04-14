@@ -3,6 +3,7 @@ require_relative "../../../config/environment.rb"
 def main_menu
   puts `clear`
   puts header
+
   puts "\nMAIN MENU\n"
   puts "OPTIONS:"
   puts "  [t] TICKET Board"
