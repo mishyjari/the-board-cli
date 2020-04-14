@@ -11,7 +11,7 @@ def main_prompt
   puts "  [i] View board by CLIENTS with OPEN TICKETS"
   puts "  [s] View SEARCH options"
   puts "  [x] EXIT"
-  
+
   res = gets.chomp.downcase
 
   case res
@@ -20,11 +20,11 @@ def main_prompt
     when "c"
       courier_board
     when "i"
-      puts "\nClient board not implimented, press enter to continue"
+      puts "\nClient board not implemented, press enter to continue"
       gets.chomp
       main_prompt
     when "s"
-      puts "\nSearch not implimented, press enter to continue"
+      puts "\nSearch not implemented, press enter to continue"
       gets.chomp
       main_prompt
     when "x"
@@ -78,7 +78,7 @@ def ticket_board_prompt
   puts "  [s] Enter 's' to go to the search menu."
   puts "  [r] Enter 'r' to refresh the board."
   puts "  [x] Enter 'x' to exit."
-  
+
   res = gets.chomp.downcase
 
   case res
@@ -91,23 +91,23 @@ def ticket_board_prompt
     when "c"
       courier_board
     when "i"
-      puts "\nClient board not implimented, press enter to continue"
+      puts "\nClient board not implemented, press enter to continue"
       gets.chomp
       main_prompt
     when "s"
-      puts "\nSearch not implimented, press enter to continue"
+      puts "\nSearch not implemented, press enter to continue"
       gets.chomp
       main_prompt
     when "x"
       exit
     else
-      begin 
+      begin
         ticket = Ticket.find(res.to_i)
         ticket_details(ticket)
         edit_ticket_prompt(ticket)
       rescue
         puts "\nInvalid Entry, try again!"
-        ticket_board_prompt 
+        ticket_board_prompt
       end
     end
 end
@@ -141,11 +141,11 @@ def edit_ticket_prompt(t)
   when "c"
     complete_ticket(t)
   when "d"
-    puts "\nDelete not implimented, press enter to continue"
+    puts "\nDelete not implemente, press enter to continue"
     gets.chomp
     edit_ticket_prompt(t)
   when "e"
-    puts "\nEdit ticket not implimented, press enter to continue"
+    puts "\nEdit ticket not implemente, press enter to continue"
     gets.chomp
     edit_ticket_prompt(t)
   when "b"
@@ -154,7 +154,7 @@ def edit_ticket_prompt(t)
     main_prompt
   when "x"
     exit
-  else 
+  else
     puts "Invalid Entry, try again"
     edit_ticket_prompt
   end
@@ -175,14 +175,14 @@ def courier_board
   when 'x'
     exit
   else
-    begin 
+    begin
       c = Courier.all.find(res.to_i)
       puts "Courier " + c.name + " found, but courier details not implemented, press enter to continue."
       gets.chomp
       courier_board
     rescue
       puts "Invalid Entry, try again!"
-      ticket_board_prompt 
+      ticket_board_prompt
     end
   end
 end
