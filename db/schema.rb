@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_13_214842) do
+ActiveRecord::Schema.define(version: 2020_04_14_001040) do
 
   create_table "clients", force: :cascade do |t|
     t.string "name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_214842) do
 
   create_table "couriers", force: :cascade do |t|
     t.string "name"
+    t.boolean "active", default: true
   end
 
   create_table "dispatchers", force: :cascade do |t|

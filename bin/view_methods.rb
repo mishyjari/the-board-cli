@@ -136,6 +136,7 @@ end
 def list_couriers
   Courier.all.each do |c|
     puts "ID ##{c.id.to_s} - #{c.name}"
+    puts "Currently holding #{c.incomplete_tickets_by_courier.length.to_s} packages"
   end
 end
 
