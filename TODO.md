@@ -56,14 +56,14 @@
 	- Add exit feature
 
 **Main Menu**
-- Update menu items to be more accurate
-	- Ticket Board
-	- Courier Board
-	- Client Board
-	- Search Options
-	- About
-	- Exit
-- Add carrot
+x Update menu items to be more accurate
+	x Ticket Board
+	x Courier Board
+	x Client Board
+	x Search Options
+	x About
+	x Exit
+x Add carrot
 
 **Ticket Board**
 - Make header prettier

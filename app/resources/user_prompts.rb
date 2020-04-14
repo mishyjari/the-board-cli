@@ -3,15 +3,16 @@ require_relative "../../config/environment.rb"
 def main_menu
   puts "\nMAIN MENU"
   puts "OPTIONS:"
-  puts "  [t] View board by INCOMPLETE TICKETS"
-  puts "  [c] View board by ACTIVE COURIERS"
-  puts "  [i] View board by CLIENTS with OPEN TICKETS"
-  puts "  [s] View SEARCH options"
+  puts "  [t] TICKET Board"
+  puts "  [c] COURIER Board"
+  puts "  [i] CLIENT Board"
+  puts "  [s] SEARCH options"
+  puts "  [a] ABOUT"
   puts "  [x] EXIT"
 
-  puts "\n"
+  print "\n> "
   res = gets.chomp.downcase
-  puts "\n> "
+  puts "\n"
 
   case res 
     when "t" 
@@ -19,7 +20,12 @@ def main_menu
     when "c" 
       courier_board_menu
     when "i" 
-      client_board_menu                                                                                                                                        
+      client_board_menu 
+    when "a"
+      # Display about/help info, abridged README kinda thing
+      puts "Not implimented: About Info. Press enter to continue"
+      gets.chomp
+      main_menu
     when "s"
       puts "\nSearch not implemented, press enter to continue"
       gets.chomp
