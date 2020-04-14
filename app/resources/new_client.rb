@@ -51,7 +51,7 @@ def new_client_form
   when 'y'
     c = Client.create(name: name, 
                   address: addr,
-                  contact_person: phone,
+                  contact_person: person,
                   contact_phone: phone)
     puts "#{c.name} created! Press enter to exit"
     gets.chomp

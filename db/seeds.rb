@@ -69,3 +69,13 @@ t4 = Ticket.create(
   oversize: false,
   rush: false,
 )
+
+# Using faker to make a bunch more clients
+10.times do 
+  Client.create(
+    name: Faker::Company.name,
+    address: Faker::Address.street_address,
+    contact_person: Faker::Name.name,
+    contact_phone: Faker::PhoneNumber.phone_number
+  )
+end
