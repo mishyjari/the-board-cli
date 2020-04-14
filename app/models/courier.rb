@@ -1,3 +1,5 @@
+require 'pry'
+
 class Courier < ActiveRecord::Base
   has_many :tickets
   has_many :clients, through: :tickets
@@ -28,4 +30,13 @@ class Courier < ActiveRecord::Base
       t.time_ordered > first && t.time_ordered < last
     end
   end
+
+  def clear_couriers
+
+  end
+
+  def last_drop
+
+  end
+
 end
