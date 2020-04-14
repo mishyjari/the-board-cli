@@ -115,7 +115,11 @@ end
 def edit_ticket_prompt(t)
   ticket_details(t)
   puts "OPTIONS:"
-  puts "  [a] ASSIGN to Courier"
+  if !t.courier
+    puts "  [a] ASSIGN to Courier"
+  else
+    puts "  [u] UNASSIGN from #{t.courier.name}"
+  end
   puts "  [c] COMPLETE Ticket"
   puts "  [d] DELETE Ticket"
   puts "  [e] EDIT Ticket"
@@ -126,6 +130,12 @@ def edit_ticket_prompt(t)
   res = gets.chomp.downcase
 
   case res
+  when "u"
+    t.unassign
+    ticket_details(t)
+    puts "\nTicket unassigned. Press enter to return to job board"
+    gets.chomp
+    ticket_board_incomplete
   when "a"
     assign_ticket(t)
   when "c"
@@ -210,6 +220,10 @@ def complete_ticket(t)
   puts "Enter the POD (point-of-delivery)"
   puts "  e.g., 'Jane Doe, Reception'"
   pod = gets.chomp
+  while pod.length == 0 do
+    puts "POD can not be empty! Try again:"
+    pod = gets.chomp
+  end
   t.complete(pod)
   ticket_details(t)
   puts "Ticket Completed, press enter to return to incomplete job board"

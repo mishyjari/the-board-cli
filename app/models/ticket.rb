@@ -25,6 +25,12 @@ class Ticket < ActiveRecord::Base
     end
   end
 
+  def unassign
+    self.courier_id = nil
+    self.status = 'unassigned'
+    self.save
+  end
+
   def assign(courier)
     self.courier_id = courier.id
     self.status = 'assigned'
