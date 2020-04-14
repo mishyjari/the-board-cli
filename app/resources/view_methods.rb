@@ -77,11 +77,13 @@ def assign_ticket(t)
   res = gets.chomp.to_i
   courier = Courier.all.find(res)
   if courier
+    clear_screen
     t.assign(courier)
     puts "Job successfully assigned to #{courier.name}\n"
     ticket_details(t)
     puts "Press enter to return to incomplete jobs board"
     gets.chomp
+    clear_screen
     ticket_board_incomplete
   else
     puts "No courier with that ID found, try again"
@@ -98,10 +100,12 @@ def complete_ticket(t)
     puts "POD can not be empty! Try again:"
     pod = gets.chomp
   end
+  clear_screen
   t.complete(pod)
   ticket_details(t)
   puts "Ticket Completed, press enter to return to incomplete job board"
   gets.chomp
-  ticket_board_incomplete
+  clear_screen
+  ticket_board_menu
 end
 
