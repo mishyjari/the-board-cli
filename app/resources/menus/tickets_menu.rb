@@ -1,39 +1,65 @@
 require_relative "../../../config/environment.rb"
 
 def ticket_board_menu
-  puts "\n\nTICKET BOARD MENU\n"
+  puts "\n\n=====================  TICKET BOARD MENU =========================\n"
   puts "\nOPTIONS:"
   puts "  [:id] Enter Job ID Number to Edit, Assign or Complete Ticket."
-  puts "  [u] Enter 'u' to view only unassigned tickets."
-  puts "  [c] Enter 'c' to switch to courier board."
-  puts "  [i] Enter 'i' to switch to client board."
-  puts "  [b] Enter 'b' to go back to the main menu."
-  puts "  [s] Enter 's' to go to the search menu."
-  puts "  [o] Enter 'r' to show incopmplete tix."
+  puts "  [a] View ALL INCOMPELTE / ACTIVE Tickets"
+  puts "  [u] View only UNASSIGNED Tickets"
+  puts "  [p] View only PENDING Tickets"
+  puts "  [t] View all tickets TODAY"
+  puts ""
+  puts "  [n] Create a NEW Ticket"
+  puts "" 
+  puts "  [s] Switch to SEARCH MENU"
+  puts "  [c] Switch to the COURIER MENU."
+  puts "  [i] Switch to CLIENT MENU."
+  puts "  [b] or [m] go BACK to the MAIN MENU."
   puts "  [x] Enter 'x' to exit."
 
+  print "\n> "
   res = gets.chomp.downcase
+  puts "\n"
 
   case res
-    when "b"
-      main_menu
+    when "a"
+      clear_screen
+      tickets_list('incomplete')
+      ticket_board_menu
     when "u"
       clear_screen
-      ticket_board_unassigned
-    when "o"
+      tickets_list('unassigned')
+      ticket_board_menu
+    when 'p'
       clear_screen
-      ticket_board_incomplete
+      tickets_list('pending')
+      ticket_board_menu
+    when 't'
+      clear_screen
+      tickets_list('today')
+      ticket_board_menu
+    when "s"
+      clear_screen
+      puts "\nSearch not implemented, press enter to continue"
+      gets.chomp
+      clear_screen
+      ticket_board_menu
+    when "n"
+      clear_screen
+      puts "\nNew ticket form not implemented. Press enter to continue"
+      gets
+      clear_screen
+      ticket_board_menu
+    when "b"
+      main_menu
+    when "m"
+      main_menu
     when "c"
       clear_screen
       courier_board_menu
     when "i"
       clear_screen
       client_board_menu
-    when "s"
-      puts "\nSearch not implemented, press enter to continue"
-      gets.chomp
-      clear_screen
-      ticket_board_menu
     when "x"
       exit
     else

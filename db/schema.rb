@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_15_133443) do
+ActiveRecord::Schema.define(version: 2020_04_15_134159) do
 
   create_table "clients", force: :cascade do |t|
     t.string "name"
@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 2020_04_15_133443) do
   create_table "tickets", force: :cascade do |t|
     t.string "pickup_address"
     t.string "dropoff_address"
-    t.datetime "time_ordered", default: "2020-04-13 18:11:33"
     t.datetime "time_delivered"
     t.string "status", default: "pending"
     t.string "pod"
@@ -43,6 +42,7 @@ ActiveRecord::Schema.define(version: 2020_04_15_133443) do
     t.string "pickup_contact"
     t.string "dropoff_contact"
     t.string "notes"
+    t.datetime "time_ordered"
   end
 
 end

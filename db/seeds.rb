@@ -31,6 +31,7 @@ kp = Courier.create(name: "Kevin Porter")
 t0 = Ticket.create(
   client_id: schmitt.id,
   pickup_address: schmitt.address,
+  time_ordered: Time.now,
   dropoff_address: "55 Wall St., New York, NY",
   oversize: false,
   rush: false,
@@ -39,6 +40,7 @@ t0 = Ticket.create(
 t1 = Ticket.create(
   client_id: schmitt.id,
   pickup_address: schmitt.address,
+  time_ordered: Time.now,
   dropoff_address: "3 Battery Park, New York, NY",
   oversize: false,
   rush: false,
@@ -47,6 +49,7 @@ t1 = Ticket.create(
 t2 = Ticket.create(
   client_id: schmitt.id,
   pickup_address: schmitt.address,
+  time_ordered: Time.now,
   dropoff_address: "500 21st St, Long Island City, NY",
   oversize: false,
   rush: true,
@@ -56,6 +59,7 @@ t2 = Ticket.create(
 t3 = Ticket.create(
   client_id: bdc.id,
   pickup_address: bdc.address,
+  time_ordered: Time.now,
   dropoff_address: '25 Ave. A, New York, NY',
   oversize: true,
   rush: false,
@@ -65,6 +69,7 @@ t3 = Ticket.create(
 t4 = Ticket.create(
   client_id: mic.id,
   pickup_address: mic.address,
+  time_ordered: Time.now,
   dropoff_address: schmitt.address,
   oversize: false,
   rush: false,

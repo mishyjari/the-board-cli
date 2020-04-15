@@ -36,13 +36,7 @@ class Ticket < ActiveRecord::Base
   def self.all_jobs_today
     now = Time.now
     Ticket.all.select do |t|
-      t.time_due.today? 
-    end
-  end
-
-  def self.completed_jobs_today
-    Ticket.all.all_jobs_today.select do |t|
-      t.status == 'completed'
+      t.time_due.today? || t.time_ordered.today? 
     end
   end
 
