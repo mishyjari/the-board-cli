@@ -1,61 +1,76 @@
 require_relative "../../../config/environment.rb"
 
 def ticket_detail_menu(t)
-  clear_screen
-  ticket_details(t)
-  puts "OPTIONS:"
-  if !t.courier
-    puts "  [a] ASSIGN to Courier"
-  else
-    puts "  [u] UNASSIGN from #{t.courier.name}"
-  end
-  puts "  [c] COMPLETE Ticket"
-  puts "  [d] DELETE Ticket"
-  puts "  [e] EDIT Ticket"
-  puts "  [b] BACK to Incomplete Board"
-  puts "  [m] MAIN Menu"
-  puts "  [x] EXIT Application"
 
+  puts "\n\n====================  TICKET DETAIL MENU  ========================\n"
+  puts "OPTIONS"
+  puts "  [y] Accept ticket but don't assign" if t.status == 'pending'
+  puts "  [a] Assign ticket to courier" if !t.courier_id
+  puts "  [u] Unassign ticket form #{t.courier.name}" if t.courier_id
+  puts ""
+  puts "  [o] Mark ticket complete" if t.status != 'complete'
+  puts "  [e] Edit ticket details"
+  puts "  [delete] Delete ticket"
+  puts ""
+  puts "  [tc] Show all incomplete tickets assigned to this courier" if t.courier_id
+  puts "  [ti] Show all incomplete tickets from this client"
+  puts ""
+  puts "  [s] Switch to Search Menu"
+  puts "  [c] Switch to Couriers Menu"
+  puts "  [i] Switch to Clients Menu"
+  puts "  [b] or [t] Go Back to Tickets Menu"
+  puts "  [m] Go Back to Main Menu"
+  puts "  [x] Exit Application"
+
+  print "\n> "
   res = gets.chomp.downcase
+  puts "\n"
 
   case res
-  when "u"
+  when 'y'
+    t.accept
+    clear_screen
+    ticket_detail(t)
+    ticket_detail_menu(t)
+  when 'a'
+    clear_screen
+    ticket_detail(t)
+    ticket_assign_menu(t)
+  when 'u'
     t.unassign
-    ticket_details(t)
-    puts "\nTicket unassigned. Press enter to return to job board"
-    gets.chomp
     clear_screen
-    ticket_board_incomplete
-  when "a"
-    clear_screen
-    assign_ticket(t)
-  when "c"
-    clear_screen
-    complete_ticket(t)
-  when "d"
-    clear_screen
-    puts "\nDelete not implemente, press enter to continue"
-    gets.chomp
-    clear_screen
+    ticket_detail(t)
+    puts "\nTicket unassigned. Press enter"
+    gets
+    ticket_detail(t)
     ticket_detail_menu(t)
-  when "e"
-    clear_screen
-    puts "\nEdit ticket not implemente, press enter to continue"
-    gets.chomp
-    clear_screen
-    ticket_detail_menu(t)
-  when "b"
-    clear_screen
+  when 'o'
+    #Complete
+  when 'e'
+    #Edit
+  when 'delete'
+    #Delete
+  when 'tc'
+    #Inc Tix by this courier
+  when 'ti'
+    #Inc Tix by this client
+  when 's'
+    # Search Menu
+  when 'c'
+    courier_board_menu
+  when 'i'
+    client_board_menu
+  when 'b' || 't'
     ticket_board_menu
-  when "m"
+  when 'm'
     main_menu
-  when "x"
+  when 'x'
     exit
   else
+    puts 'Invalid Input. Press enter to continue'
+    gets
     clear_screen
-    puts "Invalid Entry, press enter to try again"
-    gets.chomp
-    clear_screen
-    ticket_detail_menu
+    ticket_detail(t)
+    ticket_detail_menu(t)
   end
 end

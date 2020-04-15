@@ -66,25 +66,24 @@ x Update menu items to be more accurate
 x Add carrot
 
 **Ticket Board**
-- Make header prettier
+x Make header prettier
 x Default to menu only
-- Add carrot
-- Restructure menu
-	- Ticket details by id
-	- New ticket
-	- Completed tickets (today)
-	- Incomplete tickets
-	- Unassigned tickets
-	- Search by date
-	- Switch to client board
-	- Switch to courier board
-	- refresh this board
-	- Main menu
-	- Exit
+x Add carrot
+x Restructure menu
+	x Ticket details by id
+	x New ticket
+	x Completed tickets (today)
+	x Incomplete tickets
+	x Unassigned tickets
+	x Search by date
+	x Switch to client board
+	x Switch to courier board
+	x Main menu
+	x Exit
 
 	*Ticket Detail View*
 		x Remove double display of ticket
-		- Add line for each attribute
+		x Add line for each attribute
 		- Reformat time displays
 		- *Assign Courier*
 			- Add carrot
@@ -107,8 +106,8 @@ x Default to menu only
 
 	*List Tickets*
 	- Make it as DRY as possible, ONE method that can be passed args
-	- Should be more compact, 2-3 lines each, max
-	- Should have "LATE" flag if current time > due time
+	x Should be more compact, 2-3 lines each, max
+	x Should have "LATE" flag if current time > due time
 	- Should default to sort by time submitted
 		- Impliment features to sort by status, time due, company name, courier name... and DRY
 	- Should have a limit of how many are displayed on a page with a default value and an optional user-defined value

@@ -66,9 +66,10 @@ def ticket_board_menu
       begin
         ticket = Ticket.find(res.to_i)
         clear_screen
-        ticket_details(ticket)
+        ticket_detail(ticket)
         ticket_detail_menu(ticket)
       rescue
+        clear_screen
         puts "\nInvalid Entry, press enter to try again!"
         gets.chomp
         clear_screen

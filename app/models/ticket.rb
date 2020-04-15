@@ -40,6 +40,11 @@ class Ticket < ActiveRecord::Base
     end
   end
 
+  def accept
+    self.status = 'incomplete' if self.status == 'pending'
+    self.save
+  end
+
   def unassign
     self.courier_id = nil
     self.status = 'unassigned'
