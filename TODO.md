@@ -89,14 +89,14 @@ x Restructure menu
 			x Add carrot
 			x Exceptions revert to assign menu, not job detail menu
 		- *Complete Ticket*
-			- Add carrot
-			- Line break beneath ticket detail
+			x Add carrot
+			x Line break beneath ticket detail
 			- Add handler for custom drop time
-			- Add handler to add notes
-			- Add confirmation dialogue
-	- Impliment *add notes to ticket*
-	- Impliment *Edit Ticket*
-	- Impliment *Delete Ticket*
+			x Add handler to add notes
+			x Add confirmation dialogue
+	x Impliment *add notes to ticket*
+	x Impliment *Edit Ticket*
+	x Impliment *Delete Ticket*
 	x Impliment *Switch to courier/client views*
 	- Impliment *Search*
 	- Impliment *New Ticket*
