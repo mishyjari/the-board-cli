@@ -62,6 +62,7 @@ def ticket_detail_menu(t)
   when 'i'
     client_board_menu
   when 'b' || 't'
+    clear_screen
     ticket_board_menu
   when 'm'
     main_menu
