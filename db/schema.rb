@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_15_134159) do
+ActiveRecord::Schema.define(version: 2020_04_15_192652) do
 
   create_table "clients", force: :cascade do |t|
     t.string "name"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2020_04_15_134159) do
     t.string "dropoff_contact"
     t.string "notes"
     t.datetime "time_ordered"
+    t.datetime "time_ready"
   end
 
 end

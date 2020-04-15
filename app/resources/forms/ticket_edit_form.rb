@@ -1,11 +1,19 @@
 require_relative "../../../config/environment.rb"    
 
 def ticket_edit_form(t)
-  puts "Ticket edit form for #{t.id}"
-  puts "Not Implimented. Press Enter"
-  gets
   clear_screen
   ticket_detail(t)
-  ticket_detail_menu(t)
+  puts "\nEDIT TICKET\n"
+
+  # Pickup addr + contact
+  # Dropoff addr + contact
+  # Time due
+  # Rush
+  # OS
+  # notes
+ 
+  # Change courier
+  # Change status
+
 end
 
