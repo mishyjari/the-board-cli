@@ -36,6 +36,7 @@ def ticket_detail_menu(t)
     clear_screen
     ticket_detail(t)
     ticket_assign_menu(t)
+    ticket_board_menu
   when 'u'
     t.unassign
     clear_screen

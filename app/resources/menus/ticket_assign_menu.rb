@@ -39,7 +39,6 @@ def ticket_assign_menu(t)
       puts "Press enter"
       gets
       clear_screen
-      ticket_board_menu
     rescue
       puts "\nInvalid response. Press enter."
       gets

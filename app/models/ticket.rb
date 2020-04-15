@@ -40,6 +40,15 @@ class Ticket < ActiveRecord::Base
     end
   end
 
+  def add_note(note)
+    if !self.notes
+      self.notes = "#{Time.now.to_s}\n#{note}\n"
+    else
+      self.notes += "#{Time.now.to_s}\n#{note}\n"
+    end
+    self.save
+  end
+
   def accept
     self.status = 'incomplete' if self.status == 'pending'
     self.save
