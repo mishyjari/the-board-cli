@@ -45,11 +45,11 @@ def ticket_detail_menu(t)
     ticket_detail(t)
     ticket_detail_menu(t)
   when 'o'
-    #Complete
+    ticket_complete_form(t)
   when 'e'
-    #Edit
+    ticket_edit_form(t)
   when 'delete'
-    #Delete
+    ticket_delete_form(t)
   when 'tc'
     #Inc Tix by this courier
   when 'ti'
