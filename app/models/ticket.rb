@@ -2,6 +2,8 @@ class Ticket < ActiveRecord::Base
   belongs_to :courier
   belongs_to :client
   
+  attr_accessor :time_due
+  
   # Calculate time due based on ordered time.
   # Service tiers are 3 hours for non-rush and 1 hour for rush
   # Expand this later to allow for client-specified due times
@@ -15,13 +17,32 @@ class Ticket < ActiveRecord::Base
 
   def self.unassigned_jobs
     Ticket.all.select do |t|
-      t.status == 'pending'
+      !t.courier_id
     end
   end
 
   def self.incomplete_jobs
     Ticket.all.select do |t|
       t.status != 'complete'
+    end
+  end
+
+  def self.pending_jobs
+    Ticket.all.select do |t|
+      t.status == 'pending'
+    end
+  end
+
+  def self.all_jobs_today
+    now = Time.now
+    Ticket.all.select do |t|
+      t.time_due.today? 
+    end
+  end
+
+  def self.completed_jobs_today
+    Ticket.all.all_jobs_today.select do |t|
+      t.status == 'completed'
     end
   end
 
