@@ -85,9 +85,9 @@ x Restructure menu
 		x Remove double display of ticket
 		x Add line for each attribute
 		- Reformat time displays
-		- *Assign Courier*
-			- Add carrot
-			- Exceptions revert to assign menu, not job detail menu
+		x *Assign Courier*
+			x Add carrot
+			x Exceptions revert to assign menu, not job detail menu
 		- *Complete Ticket*
 			- Add carrot
 			- Line break beneath ticket detail
@@ -97,12 +97,12 @@ x Restructure menu
 	- Impliment *add notes to ticket*
 	- Impliment *Edit Ticket*
 	- Impliment *Delete Ticket*
-	- Impliment *Switch to courier/client views*
+	x Impliment *Switch to courier/client views*
 	- Impliment *Search*
 	- Impliment *New Ticket*
-	- Impliment *Completed, incomplete and unassigned tickets* options
-	- Impliiment *Accept Job*
-		- Switches status from 'pending' to 'incomplete' without assigning it
+	x Impliment *Completed, incomplete and unassigned tickets* options
+	x Impliiment *Accept Job*
+		x Switches status from 'pending' to 'incomplete' without assigning it
 
 	*List Tickets*
 	- Make it as DRY as possible, ONE method that can be passed args
@@ -116,12 +116,12 @@ x Restructure menu
 **Courier Board**
 	x Default to menu only (not list)
 	- Build out menu options
-		- List active couriers
-		- List all couriers
-		- Show clear coriers
+		x List active couriers
+		x List all couriers
+		x Show clear coriers
 		- Add new courier
-		- Switch to Client Board
-		- Switch to Ticket Board
+		x Switch to Client Board
+		x Switch to Ticket Board
 		- *Impliment search by name*
 	*List Couries*
 		- Add num of packages today
