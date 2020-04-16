@@ -18,12 +18,11 @@ def client_board_menu
   case res
   when "a"
     clear_screen
-    list_all_clients
+    list_clients(Client.all)
     client_board_menu
   when "t"
     clear_screen
-    puts "Clients with open tickets not implimented. Press enter to continue."
-    gets.chomp
+    list_clients(Client.all.clients_with_incomplete_tickets)
     client_board_menu
   when "s"
     clear_screen
@@ -42,6 +41,7 @@ def client_board_menu
     begin
       c = Client.find(res.to_i)
       clear_screen
+      client_detail(c)
       client_detail_menu(c)
     rescue
       clear_screen

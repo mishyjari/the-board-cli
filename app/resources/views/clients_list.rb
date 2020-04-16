@@ -1,9 +1,7 @@
 require_relative "../../../config/environment.rb"
 
-def list_all_clients
-  puts "\n"
-  Client.all.each do |c|
-    puts "ID: #{c.id} | #{c.name}"
+def list_clients(array)
+  array.each do |c|
+    puts "ID: #{c.id} | #{c.name} | #{c.address}"
   end
-  puts "\n"
 end
