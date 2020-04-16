@@ -36,13 +36,15 @@ def ticket_detail_menu(t)
     clear_screen
     ticket_detail(t)
     ticket_assign_menu(t)
-    ticket_board_menu
+    ticket_detail(t)
+    ticket_detail_menu(t)
   when 'u'
     t.unassign
     clear_screen
     ticket_detail(t)
     puts "\nTicket unassigned. Press enter"
     gets
+    clear_screen
     ticket_detail(t)
     ticket_detail_menu(t)
   when 'o'
@@ -52,11 +54,31 @@ def ticket_detail_menu(t)
   when 'delete'
     ticket_delete_form(t)
   when 'tc'
-    #Inc Tix by this courier
+    courier = t.courier if t.courier_id
+    clear_screen
+    puts "\nINCOMPLETE TICKETS ASSIGNED TO #{courier.name.upcase}\n"
+    list_tickets(courier.incomplete_tickets_by_courier)
+    puts "\nPress enter to return to ticket detail"
+    gets
+    clear_screen
+    ticket_detail(t)
+    ticket_detail_menu(t)
   when 'ti'
-    #Inc Tix by this client
+    client = t.client
+    clear_screen
+    puts "\nINCOMPLETE TICKETS BY #{client.name.upcase}\n"
+    list_tickets(client.incomplete_tickets_by_client)
+    puts "\nPress enter to return to ticket detail"
+    gets
+    clear_screen
+    ticket_detail(t)
+    ticket_detail_menu(t)
   when 's'
-    # Search Menu
+    puts "\nSearch not implemented. Press enter"
+    gets
+    clear_screen
+    ticket_detail(t)
+    ticket_detail_menu(t)
   when 'c'
     courier_board_menu
   when 'i'

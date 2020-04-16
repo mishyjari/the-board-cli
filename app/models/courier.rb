@@ -10,12 +10,14 @@ class Courier < ActiveRecord::Base
     end
   end
 
-  def toggle_active_for_courier
-    if self.active
-      self.active = false
-    else
-      self.active = true
+  def late_packages_by_courier
+    self.incomplete_tickets_by_courier.select do |t|
+      t.time_due < Time.now
     end
+  end
+
+  def toggle_active_for_courier
+    self.active = !self.active
     self.save
   end
 

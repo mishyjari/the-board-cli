@@ -18,12 +18,14 @@ def ticket_assign_menu(t)
   when 'c'
     clear_screen
     ticket_detail(t)
-    list_couriers('active')
+    puts "\nACTIVE COURIERS\n"
+    list_couriers(Courier.all.active_couriers)
     ticket_assign_menu(t)
   when 'r'
     clear_screen
     ticket_detail(t)
-    list_couriers('clear')
+    puts "\nCLEAR COURIERS\n"
+    list_couriers(Courier.all.clear_couriers)
     ticket_assign_menu(t)
   when 'b'
     clear_screen
@@ -36,7 +38,7 @@ def ticket_assign_menu(t)
       clear_screen
       ticket_detail(t)
       puts "\nSuccessfully assigned to #{c.name}."
-      puts "Press enter"
+      puts "Press enter to return to tickets menu"
       gets
       clear_screen
     rescue
@@ -44,7 +46,7 @@ def ticket_assign_menu(t)
       gets
       clear_screen
       ticket_detail(t)
-      ticket_detail_menu(t)
+      ticket_assign_menu(t)
     end
   end
 end

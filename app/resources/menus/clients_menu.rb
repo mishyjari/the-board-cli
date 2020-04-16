@@ -1,7 +1,7 @@
 require_relative "../../../config/environment.rb"
 
 def client_board_menu
-  puts "\nCLIENT BOARD MENU\n"
+  puts ""
   puts "\nOPTIONS:"
   puts "  [:id] Show client details by ID"
   puts "  [a] ALL Clients"
@@ -18,16 +18,18 @@ def client_board_menu
   case res
   when "a"
     clear_screen
+    puts "\nALL CLIENTS\n\n"
     list_clients(Client.all)
     client_board_menu
   when "t"
     clear_screen
+    puts "\nCLIENTS WITH INCOMPLETE TICKETS\n\n"
     list_clients(Client.all.clients_with_incomplete_tickets)
     client_board_menu
   when "s"
-    clear_screen
-    puts "Search for client by name not implimented. Press enter to continue."
+    puts "\n\nSearch for client by name not implimented. Press enter to continue."
     gets.chomp
+    clear_screen
     client_board_menu
   when "n"
     clear_screen

@@ -4,6 +4,7 @@ require_relative '../../../config/environment.rb'
 
 def new_ticket_form(c=nil)
 
+  puts "\n\nNEW TICKET FORM\n"
   def pick_client
     puts "  [enter] View client list"
     puts "  [:id] Enter the ID of the Client to use"
@@ -52,7 +53,7 @@ def new_ticket_form(c=nil)
   end
 
   if !c
-    puts "Tickets must have a client!"
+    puts "\nTickets must have a client!"
     new_ticket_form(pick_client)
   end
 

@@ -1,7 +1,7 @@
 require_relative "../../../config/environment.rb"
 
 def courier_board_menu
-  puts "\nCOURIER BOARD\n"
+  puts ""
   puts "\nOPTIONS"
   puts "[:id] View Courier by ID"
   puts "[c] LIST Active Couriers"
@@ -23,16 +23,19 @@ def courier_board_menu
   when "c"
     # Active Couriers
     clear_screen
+    puts "\nACTIVE COURIERS:\n\n"
     list_couriers(Courier.all.active_couriers)
     courier_board_menu
   when "a"
     # All Couriers
     clear_screen
+    puts "\nALL COURIERS:\n\n"
     list_couriers(Courier.all)
     courier_board_menu
   when "r"
     # Clear Couriers
     clear_screen
+    puts "\nCLEAR COURIERS:\n\n"
     list_couriers(Courier.all.clear_couriers)
     courier_board_menu
   when "n"

@@ -3,10 +3,9 @@ require_relative "../../../config/environment.rb"
 def courier_detail_menu(c)
 
   puts "\nOPTIONS:"
-  puts "  [a] Mark courier ACTIVE" if c.active
-  puts "  [a] Mark courier INACTIVE" if !c.active
+  puts "  [a] Mark courier ACTIVE" if !c.active
+  puts "  [a] Mark courier INACTIVE" if c.active
   puts "  [t] All TICKETS TODAY assigned to #{c.name}"
-  puts "  [i] INCOMPLETE Tickets assigned to #{c.name}"
   puts "  [d] Tickets by DATE assigned to #{c.name}"
   puts "  [e] EDIT Details for #{c.name}"
   puts ""
@@ -20,33 +19,20 @@ def courier_detail_menu(c)
 
   case res
   when "a"
-    toggle_active_for_courier(c)
-    clear_screen
-    courier_detail(c)
-    puts "#{c.name} 'active' set to '#{c.active.to_s}'"
-    puts "Press enter"
+    c.toggle_active_for_courier
     clear_screen
     courier_detail(c)
     courier_detail_menu(c)
   when "t"
-    puts "I won't let you do that becuse we need to fix app/resources/views/ticketlist.rb to take arrays!"
-    puts "See the comments in that file, but we should be able to pass an instance method and call 'ticket_list(c.tickets_today_by_courer)'"
-    puts "press enter for now."
-    gets
     clear_screen
     courier_detail(c)
-    courier_detail_menu(c)
-  when "i"
-    puts "I won't let you do that becuse we need to fix app/resources/views/ticketlist.rb to take arrays!"
-    puts "See the comments in that file, but we should be able to pass an instance method and call 'ticket_list(c.incomplete_tickets_by_courer)'"
-    puts "press enter for now."
-    gets
-    clear_screen
-    courier_detail(c)
+    puts "\nALL TICKETS TODAY BY #{c.name.upcase}"
+    list_tickets(c.tickets_today_by_courier)
+    puts ""
     courier_detail_menu(c)
   when "d"
-    puts "I won't let you do that becuse we need to fix app/resources/views/ticketlist.rb to take arrays!"
-    puts "And we've gotta build out a user-friendly way of interpolating human-friendly date strings into date objects."
+    puts "Date search features have not been implemented yet!!\n"
+    puts "We've gotta build out a user-friendly way of interpolating human-friendly date strings into date objects."
     puts "There is a method in the courier model #courier_tickets_by_date_range(d1,d2) to select the tickets."
     puts "But this should be painless for the user to enter two dates and get back Time instances."
     puts "Check out /app/resources/helpers/get_time.rb for a partially built out helper method for this"
