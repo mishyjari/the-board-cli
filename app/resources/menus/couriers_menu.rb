@@ -10,7 +10,7 @@ def courier_board_menu
   puts ""
   puts "[n] Create NEW Courier"
   puts ""
-  puts "[l] Switch to CLIENT BOARD"
+  puts "[i] Switch to CLIENT BOARD"
   puts "[t] Switch to TICKET BOARD"
   puts "[m] Return to MAIN MENU"
   puts "[x] EXIT Application"
@@ -41,7 +41,7 @@ def courier_board_menu
     gets.chomp
     clear_screen
     courier_board_menu
-  when "l"
+  when "i"
     clear_screen
     client_board_menu
   when "t"
@@ -55,7 +55,7 @@ def courier_board_menu
     begin
       c = Courier.find(res.to_i)
       clear_screen
-      courier_details(c)
+      courier_detail(c)
       courier_detail_menu(c)
     rescue
       clear_screen

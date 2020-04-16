@@ -1,9 +1,77 @@
 require_relative "../../../config/environment.rb"
 
 def courier_detail_menu(c)
-  puts "Menu to access #{c.name} not implemented."
-  puts "Press enter to return to last menu"
-  gets.chomp
-  clear_screen
-  courier_board_menu
+
+  puts "\nOPTIONS:"
+  puts "  [a] Mark courier ACTIVE" if c.active
+  puts "  [a] Mark courier INACTIVE" if !c.active
+  puts "  [t] All TICKETS TODAY assigned to #{c.name}"
+  puts "  [i] INCOMPLETE Tickets assigned to #{c.name}"
+  puts "  [d] Tickets by DATE assigned to #{c.name}"
+  puts "  [e] EDIT Details for #{c.name}"
+  puts ""
+  puts "  [b] BACK to Couriers Menu"
+  puts "  [m] BACK to Main Menu"
+  puts "  [x] EXIT Application"
+
+  print "\n> "
+  res = gets.chomp.downcase
+  puts "\n"
+
+  case res
+  when "a"
+    toggle_active_for_courier(c)
+    clear_screen
+    courier_detail(c)
+    puts "#{c.name} 'active' set to '#{c.active.to_s}'"
+    puts "Press enter"
+    clear_screen
+    courier_detail(c)
+    courier_detail_menu(c)
+  when "t"
+    puts "I won't let you do that becuse we need to fix app/resources/views/ticketlist.rb to take arrays!"
+    puts "See the comments in that file, but we should be able to pass an instance method and call 'ticket_list(c.tickets_today_by_courer)'"
+    puts "press enter for now."
+    gets
+    clear_screen
+    courier_detail(c)
+    courier_detail_menu(c)
+  when "i"
+    puts "I won't let you do that becuse we need to fix app/resources/views/ticketlist.rb to take arrays!"
+    puts "See the comments in that file, but we should be able to pass an instance method and call 'ticket_list(c.incomplete_tickets_by_courer)'"
+    puts "press enter for now."
+    gets
+    clear_screen
+    courier_detail(c)
+    courier_detail_menu(c)
+  when "d"
+    puts "I won't let you do that becuse we need to fix app/resources/views/ticketlist.rb to take arrays!"
+    puts "And we've gotta build out a user-friendly way of interpolating human-friendly date strings into date objects."
+    puts "There is a method in the courier model #courier_tickets_by_date_range(d1,d2) to select the tickets."
+    puts "But this should be painless for the user to enter two dates and get back Time instances."
+    puts "Check out /app/resources/helpers/get_time.rb for a partially built out helper method for this"
+    puts "\npress enter for now."
+    gets
+    clear_screen
+    courier_detail(c)
+    courier_detail_menu(c)
+  when "e"
+    clear_screen
+    courier_detail(c)
+    courier_edit_menu(c)
+  when "b"
+    clear_screen
+    courier_board_menu
+  when "m"
+    main_menu
+  when "x"
+    clear_screen
+    exit
+  else
+    puts "Invalid input. Press enter."
+    gets
+    clear_screen
+    courier_detail(c)
+    courier_detail_menu(c)
+  end
 end

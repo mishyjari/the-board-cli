@@ -1,4 +1,3 @@
-courier
 require_relative "../../../config/environment.rb"
 
 def ticket_detail_menu(t)
@@ -7,8 +6,7 @@ def ticket_detail_menu(t)
   puts "OPTIONS"
   puts "  [y] Accept ticket but don't assign" if t.status == 'pending'
   puts "  [a] Assign ticket to courier" if !t.courier_id
-  puts "  [u] Unassicourier
-gn ticket form #{t.courier.name}" if t.courier_id
+  puts "  [u] Unassign ticket form #{t.courier.name}" if t.courier_id
   puts ""
   puts "  [o] Mark ticket complete" if t.status != 'complete'
   puts "  [e] Edit ticket details"

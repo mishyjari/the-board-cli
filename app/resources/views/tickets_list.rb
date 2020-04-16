@@ -4,6 +4,8 @@ require_relative "../../../config/environment.rb"
 
 def tickets_list(type)
 
+  ###### LETS REFACTOR THIS METHOD TO TAKE AN ARRAY OF TICKETS!!
+  ###### THAT WAY WE CAN PASS IT ANYTHING FILTERED OUT BY TICKET CLASS METHODS -OR- INSTANCE METHODS FOR COURIER AND CLIENT!!
 
   # Handle different args passed into tickets_list, calling class methoda in the ticket model and store results in an array to be displayed
   type = type.downcase

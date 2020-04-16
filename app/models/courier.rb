@@ -19,13 +19,19 @@ class Courier < ActiveRecord::Base
     self.save
   end
 
+  def tickets_today_by_courier
+    self.tickets.select do |t|
+      t.time_due.today? || t.time_ordered.today? || t.time_ready.today?
+    end
+  end
+
   def incomplete_tickets_by_courier
     self.tickets.select do |t|
       t.status != 'complete'
     end
   end
 
-  def get_courier_tickets_by_date_range(first,last)
+  def courier_tickets_by_date_range(first,last)
     self.tickets.select do |t|
       t.time_ordered > first && t.time_ordered < last
     end
