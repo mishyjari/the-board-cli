@@ -10,7 +10,7 @@ def ticket_board_menu
   puts "  [t] View all tickets TODAY"
   puts ""
   puts "  [n] Create a NEW Ticket"
-  puts "" 
+  puts ""
   puts "  [s] Switch to SEARCH MENU"
   puts "  [c] Switch to the COURIER MENU."
   puts "  [i] Switch to CLIENT MENU."
@@ -24,19 +24,19 @@ def ticket_board_menu
   case res
     when "a"
       clear_screen
-      tickets_list('incomplete')
+      list_tickets(Ticket.all.incomplete_jobs)
       ticket_board_menu
     when "u"
       clear_screen
-      tickets_list('unassigned')
+      list_tickets(Ticket.all.unassigned_jobs)
       ticket_board_menu
     when 'p'
       clear_screen
-      tickets_list('pending')
+      list_tickets(Ticket.all.pending_jobs)
       ticket_board_menu
     when 't'
       clear_screen
-      tickets_list('today')
+      list_tickets(Ticket.all.all_jobs_today)
       ticket_board_menu
     when "s"
       clear_screen
