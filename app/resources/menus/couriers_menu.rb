@@ -23,17 +23,17 @@ def courier_board_menu
   when "c"
     # Active Couriers
     clear_screen
-    list_couriers('active')
+    list_couriers(Courier.all.active_couriers)
     courier_board_menu
   when "a"
     # All Couriers
     clear_screen
-    list_couriers('all')
+    list_couriers(Courier.all)
     courier_board_menu
   when "r"
     # Clear Couriers
     clear_screen
-    list_couriers('clear')
+    list_couriers(Courier.all.clear_couriers)
     courier_board_menu
   when "n"
     # New Courier
