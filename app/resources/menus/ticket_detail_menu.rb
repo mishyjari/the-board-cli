@@ -20,7 +20,7 @@ gn ticket form #{t.courier.name}" if t.courier_id
   puts "  [s] Switch to Search Menu"
   puts "  [c] Switch to Couriers Menu"
   puts "  [i] Switch to Clients Menu"
-  puts "  [b] or [t] Go Back to Tickets Menu"
+  puts "  [t] Go Back to Tickets Menu"
   puts "  [m] Go Back to Main Menu"
   puts "  [x] Exit Application"
 
@@ -63,7 +63,7 @@ gn ticket form #{t.courier.name}" if t.courier_id
     courier_board_menu
   when 'i'
     client_board_menu
-  when 'b' || 't'
+  when 't'
     clear_screen
     ticket_board_menu
   when 'm'

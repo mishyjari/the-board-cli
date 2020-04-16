@@ -15,7 +15,7 @@ def ticket_board_menu
   puts "  [s] Switch to SEARCH MENU"
   puts "  [c] Switch to the COURIER MENU."
   puts "  [i] Switch to CLIENT MENU."
-  puts "  [b] or [m] go BACK to the MAIN MENU."
+  puts "  [m] Go back to the MAIN MENU."
   puts "  [x] Enter 'x' to exit."
 
   print "\n> "

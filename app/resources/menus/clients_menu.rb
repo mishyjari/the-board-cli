@@ -8,7 +8,7 @@ def client_board_menu
   puts "  [t] Clients with open TICKETS"
   puts "  [s] SEARCH for client by name"
   puts "  [n] Create NEW Client"
-  puts "  [b] or [m] BACK to main menu"
+  puts "  [m] Back to MAIN MENU"
   puts "  [x] EXIT Application"
 
   print "\n> "
@@ -34,7 +34,7 @@ def client_board_menu
     clear_screen
     new_client_form
     client_board_menu
-  when "b" || "m"
+  when "m"
     main_menu
   when "x"
     exit

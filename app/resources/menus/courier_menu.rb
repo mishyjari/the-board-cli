@@ -4,10 +4,10 @@ def courier_board_menu
   puts "\nCOURIER BOARD\n"
   puts "\nOPTIONS"
   puts "[:id] View Courier by ID"
-  puts "[c] LIST Active Couriers"
+  puts "[c] List Active COURIERS"
   puts "[a] List ALL Couriers"
   puts "[r] List CLEAR Couriers"
-  puts "[d] Courier DETAILS menu"
+  puts "[d] Courier DETAILS"
   puts ""
   puts "[n] Create NEW Courier"
   puts ""
@@ -29,7 +29,7 @@ def courier_board_menu
     courier_board_menu
   when "d"
     clear_screen
-    courier_detail_menu
+    courier_details_menu
   when "a"
     # All Couriers
     clear_screen
@@ -61,7 +61,7 @@ def courier_board_menu
       c = Courier.find(res.to_i)
       clear_screen
       courier_details(c)
-      courier_detail_menu(c)
+      courier_details_menu(c)
     rescue
       clear_screen
       puts "Invalid entry, try again!"
