@@ -2,6 +2,9 @@
 
 *mark complete by switching '-' to 'x'*
 
+##BUGS
+*list bugs here*
+
 ##MIGRATIONS
 - Remove dispatcher table if we're not gonna use it
 - Add required flags to appropriate props on all tables
