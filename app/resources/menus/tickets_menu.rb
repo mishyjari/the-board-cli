@@ -46,10 +46,7 @@ def ticket_board_menu
       ticket_board_menu
     when "n"
       clear_screen
-      puts "\nNew ticket form not implemented. Press enter to continue"
-      gets
-      clear_screen
-      ticket_board_menu
+      new_ticket_form
     when "b"
       main_menu
     when "m"
