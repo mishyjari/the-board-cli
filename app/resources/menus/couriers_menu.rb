@@ -7,13 +7,15 @@ def courier_board_menu
   puts "[c] LIST Active Couriers"
   puts "[a] List ALL Couriers"
   puts "[r] List CLEAR Couriers"
+  puts "[d] Courier DETAILS menu"
   puts ""
   puts "[n] Create NEW Courier"
   puts ""
-  puts "[l] Switch to CLIENT BOARD"
+  puts "[i] Switch to CLIENT BOARD"
   puts "[t] Switch to TICKET BOARD"
   puts "[m] Return to MAIN MENU"
   puts "[x] EXIT Application"
+
 
   print "\n> "
   res = gets.chomp.downcase
@@ -25,6 +27,9 @@ def courier_board_menu
     clear_screen
     list_couriers('active')
     courier_board_menu
+  when "d"
+    clear_screen
+    courier_detail_menu
   when "a"
     # All Couriers
     clear_screen

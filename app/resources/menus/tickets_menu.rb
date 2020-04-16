@@ -1,3 +1,4 @@
+
 require_relative "../../../config/environment.rb"
 
 def ticket_board_menu
@@ -10,7 +11,7 @@ def ticket_board_menu
   puts "  [t] View all tickets TODAY"
   puts ""
   puts "  [n] Create a NEW Ticket"
-  puts "" 
+  puts ""
   puts "  [s] Switch to SEARCH MENU"
   puts "  [c] Switch to the COURIER MENU."
   puts "  [i] Switch to CLIENT MENU."

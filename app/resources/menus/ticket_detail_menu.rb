@@ -1,4 +1,4 @@
-courier
+
 require_relative "../../../config/environment.rb"
 
 def ticket_detail_menu(t)
