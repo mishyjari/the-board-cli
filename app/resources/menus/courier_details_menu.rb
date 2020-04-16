@@ -2,15 +2,15 @@ require_relative "../../../config/environment.rb"
 
 # not sure how to pass in the instance of an individual courier, looked in clients_details but didn't fully get how we did it there
 
-def courier_details_menu#(c)
-  #courier_details(c)
+def courier_details_menu(c)
+  courier_details(c)
   #puts "Menu to access #{c.name} not implemented."
   puts "\n\n====================  COURIER DETAILS MENU  ========================\n"
   puts ""
   puts "OPTIONS"
   puts ""
-  puts "  [sa] Change courier STATUS to active" #if c.status == 'inactive'
-  puts "  [si] Change courier STATUS to inactive" #if c.status == 'active'
+  puts "  [sa] Change courier STATUS to active" if c.status == 'inactive'
+  puts "  [si] Change courier STATUS to inactive" if c.status == 'active'
 	puts "  [a] ASSIGN ticket to this courier (list unassigned tix not implemented)"
   puts "  [e] EDIT courier details"
   puts ""
@@ -62,7 +62,7 @@ def courier_details_menu#(c)
       puts "Deletion unsuccesful. Press enter to continue."
       gets
     clear_screen
-    courier_details_menu#(c)
+    courier_details_menu(c)
     end
   when 'c'
     clear_screen
