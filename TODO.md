@@ -44,12 +44,24 @@ x Clear the terminal in between displays (puts `clear`)
 x Factor out menu and view files based on board
 - Write display method that prints input at a certain length (determined by arg)
 
+**All three LIST methods should be changed/built to take an array as an argument. This will let us select and sort instances via class methods and just pass the return of said method into the lister method. This will make the remaining analytics and sorting tasks 10000x easier**
+
+**Demo Menu**
+- Attach to about? Maybe right in the main menu?
+- Shortcuts to a few stand out features
+- Shortcuts to add new client/courier/ticket forms
+- Feature that can create 'n' number of of random clients, tickets or couriers
+	- Do this with Faker. Theres already one to make clients in the seeds file. Just needs to be pulled out into its own little method (probably put this in app/resources/helpers and just have a method for randomizing one of each class)
+- Reword the seeds file be randomized every time and populate with tickets and couriers in different arrangements
+
 **Head**
 - Make it prettier
 - Format time
 
 **Create New Interfaces**
 - Build out new ticket interface
+ - Take a client instance as an argument
+ - Create a new client instance called 'guest' to handle tickets not from clients
 - *Impliment new courier interface*
 - New client form
 	- Handle input of client instance / search by name
@@ -94,14 +106,14 @@ x Restructure menu
 			- Add handler for custom drop time
 			x Add handler to add notes
 			x Add confirmation dialogue
-	x Impliment *add notes to ticket*
-	x Impliment *Edit Ticket*
-	x Impliment *Delete Ticket*
-	x Impliment *Switch to courier/client views*
-	- Impliment *Search*
-	- Impliment *New Ticket*
-	x Impliment *Completed, incomplete and unassigned tickets* options
-	x Impliiment *Accept Job*
+	x Implement *add notes to ticket*
+	x Implement *Edit Ticket*
+	x Implement *Delete Ticket*
+	x Implement *Switch to courier/client views*
+	- Implement *Search*
+	- Implement *New Ticket*
+	x Implement *Completed, incomplete and unassigned tickets* options
+	x Implement *Accept Job*
 		x Switches status from 'pending' to 'incomplete' without assigning it
 
 	*List Tickets*
@@ -124,21 +136,21 @@ x Restructure menu
 		x Switch to Ticket Board
 		- *Impliment search by name*
 	*List Couries*
-		- Add num of packages today
+		- Add num of packages today (theres a class method for pkgs today in the courier model)
 		- Add LATE flag if they're holding any late packages
 	*Courier Detail*
 		- Display name, id, active status, num holding, num today, LATE flag, last drop addr + time
-		- Display all incomplete tix assigned to self
+		x Display all incomplete tix assigned to self
 		- Menu
-			- Mark active/inactive
+			x Mark active/inactive
 			- Assign ticket to this courier (list unassigned tix)
 			- Edit details
 			- View completed tickets today
 			- View tickets by date range (search)
 			- Delete courier
-			- Back to courier board
-			- Back to main menu
-			- Exit application
+			x Back to courier board
+			x Back to main menu
+			x Exit application
 
 **Client Board**
 	- Client detail view
