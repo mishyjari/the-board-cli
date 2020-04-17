@@ -1,5 +1,5 @@
 require_relative "../../../config/environment.rb"
-def random_courier(n=1)
+def random_courier
   Courier.create(
     name: Faker::Name.name,
     email: Faker::Internet.safe_email,
@@ -7,7 +7,7 @@ def random_courier(n=1)
   )
 end
 
-def random_client(n=1)
+def random_client
   Client.create(
     name: Faker::Company.name,
     address: Faker::Address.street_address,
@@ -16,14 +16,17 @@ def random_client(n=1)
   )
 end
 
-def random_ticket(n=1)
+def random_ticket
+  
   def toss(n=50)
     rand(1..100) < n
   end
+
   def status
-    statuses = ['pending','unassigned','incomplete','complete']
+    statuses = ['pending','unassigned','incomplete']
     statuses[rand(statuses.length)]
   end
+  
   def courier
     if status == 'pending' || status == 'unassigned'
       nil
@@ -32,12 +35,9 @@ def random_ticket(n=1)
       c.id
     end
   end
-  def pod
-    status == 'complete' ? Faker::Name.name : nil
-  end
   def client
     num_clients = Client.all.length
-    Client.all[rand(num_clients)]
+    num_clients == 0 ? Client.create(name: "GUEST-#{Time.now.ctime}") : Client.all[rand(num_clients)]
   end
   def delivered
     status == 'delivered' ? Time.now : nil
@@ -47,13 +47,41 @@ def random_ticket(n=1)
     courier_id: courier,
     pickup_address: client.address,
     pickup_contact: client.contact_phone,
-    delivery_address: Faker::Address.steet_address,
-    delivery_contact: Faker::PhoneNumber.phone_number,
+    dropoff_address: Faker::Address.street_address,
+    dropoff_contact: Faker::PhoneNumber.phone_number,
     rush: toss,
-    os: toss,
+    oversize: toss,
     status: status,
-    pod: pod,
-    time_delivered: delivered
+    pod: nil,
+    time_delivered: nil,
+    time_ordered: Time.now - rand(200).minutes,
+    time_ready: nil
+
   )
 end
 
+def random_completed_ticket
+  def client
+    num_clients = Client.all.length
+    num_clients == 0 ? Client.create(name: "GUEST-#{Time.now.ctime}") : Client.all[rand(num_clients)]
+  end
+  def courier
+    num_couriers = Courier.all.length
+    num_couriers == 0 ? nil : Courier.all[rand(num_couriers)]
+  end
+  Ticket.create(
+    client_id: client.id,
+    courier_id: courier,
+    pickup_address: client.address,
+    pickup_contact: client.contact_phone,
+    dropoff_address: Faker::Address.street_address,
+    dropoff_contact: Faker::PhoneNumber.phone_number,
+    rush: toss,
+    oversize: toss,
+    status: 'complete',
+    pod: Faker::Name.name,
+    time_delivered: Time.now - rand(200).hours,
+    time_ordered: Time.now - rand(1..250).hours,
+    time_ready: nil
+  )
+end
