@@ -2,7 +2,7 @@ require_relative "../../../config/environment.rb"
 
 def ticket_detail(t)
 
-  puts "\n\n===============  DETAIL VIEW FOR TICKET WITH ID ##{t.id} ++================\n\n"
+  puts "\n\n===============  DETAIL VIEW FOR TICKET WITH ID ##{t.id.to_s} ++================\n\n"
   puts "                           !!! LATE !!!" if t.time_due > Time.now
   puts "  Status: #{t.status.upcase} #{t.courier.name if t.courier}"
   puts "  Client: #{t.client.name}"

@@ -49,7 +49,7 @@ def ticket_board_menu
       ticket_board_menu
     when "n"
       clear_screen
-      new_ticket_form
+      NewTicket.form
     when "b" || 'm'
       main_menu
     when "c"
