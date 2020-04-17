@@ -18,7 +18,7 @@ def edit_value(key:k,str:s,hash:c)
   key = key.to_sym
   puts "EDIT #{str.upcase}"
   print "Current #{str.downcase}: #{hash[key]}"
-  puts "Enter new #{str.upcase} or press ENTER to cancel."
+  puts "Enter new #{str.upcase} or press enter to CANCEL."
   print "\n> "
   res = gets.chomp
   puts "\n"

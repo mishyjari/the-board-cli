@@ -5,7 +5,9 @@ def main_menu
   puts header
 
   puts "\nMAIN MENU\n"
+  puts ""
   puts "OPTIONS:"
+  puts ""
   puts "  [t] TICKET board"
   puts "  [c] COURIER board"
   puts "  [i] CLIENT board"

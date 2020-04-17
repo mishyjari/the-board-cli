@@ -24,7 +24,7 @@ def ticket_edit_menu(t)
   puts "  [delete] DELETE Ticket"
   puts ""
   puts "  [b] BACK to ticket detail"
-  puts "  [t] Back to TICKETS Menu"
+  puts "  [t] Back to TICKETS MENU"
   puts "  [m] Back to MAIN MENU"
   puts "  [x] EXIT application"
 

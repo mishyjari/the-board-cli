@@ -12,9 +12,9 @@ def ticket_board_menu
   puts "  [n] Create a NEW ticket"
   puts ""
   puts "  [s] Switch to SEARCH MENU"
-  puts "  [c] Switch to the COURIER MENU"
+  puts "  [c] Switch to COURIER MENU"
   puts "  [i] Switch to CLIENT MENU"
-  puts "  [m] Go back to the MAIN MENU"
+  puts "  [m] Go back to MAIN MENU"
   puts "  [x] EXIT application"
 
   print "\n> "
@@ -68,7 +68,7 @@ def ticket_board_menu
         ticket_detail_menu(ticket)
       rescue
         clear_screen
-        puts "\nInvalid Entry, press enter to try again!"
+        puts "\nInvalid entry, press enter to try again!"
         gets.chomp
         clear_screen
         ticket_board_menu
