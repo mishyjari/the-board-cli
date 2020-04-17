@@ -55,7 +55,7 @@ def random_ticket
     pod: nil,
     time_delivered: nil,
     time_ordered: Time.now - rand(200).minutes,
-    time_ready: nil
+    time_ready: Time.now - rand(20).minutes
 
   )
 end
@@ -81,7 +81,7 @@ def random_completed_ticket
     status: 'complete',
     pod: Faker::Name.name,
     time_delivered: Time.now - rand(200).hours,
-    time_ordered: Time.now - rand(1..250).hours,
-    time_ready: nil
+    time_ordered: Time.now - rand(200..250).hours,
+    time_ready: Time.now - rand(200..250).hours
   )
 end
