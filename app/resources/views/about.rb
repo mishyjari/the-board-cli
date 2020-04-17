@@ -5,9 +5,9 @@ def about
   
   puts "\nABOUT 'THE BOARD'\n"
 
-  puts "(press enter to retuen to main menu)\n"
+  puts "\n(press enter to retuen to main menu)\n"
 
-  puts "COLLABORATORS:"
+  puts "\nCONTRIBUTORS:"
   puts "  - Michelle Frattaroli"
   puts "  - Kat Maldon"
   puts ""
@@ -50,6 +50,7 @@ def about
   puts "  - Allow for sorting methods to change the order lists of instances are printed"
   puts "  - Set maximum number of items displayed per page with prev/next menu options to page through"
   puts "  - Rebuild edit instance forms using the class model implemented for new instance forms"
+  puts "  - Rework menus with TTY::Prompt and key listeners"
   puts ""
   puts "KNOWN BUGS"
   puts "  - Time instances seem to switch between UTC and local. Creates issues especially with the makers that say if a ticket is late."
