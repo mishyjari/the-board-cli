@@ -18,9 +18,9 @@ def ticket_detail_menu(t)
   puts "  [s] Switch to SEARCH MENU"
   puts "  [c] Switch to COURIERS MENU"
   puts "  [i] Switch to CLIENTS MENU"
-  puts "  [t] Go Back to TICKETS MENU"
-  puts "  [m] Go Back to MAIN MENU"
-  puts "  [x] EXIT Application"
+  puts "  [t] Go back to TICKETS MENU"
+  puts "  [m] Go back to MAIN MENU"
+  puts "  [x] EXIT application"
 
   print "\n> "
   res = gets.chomp.downcase
@@ -42,7 +42,7 @@ def ticket_detail_menu(t)
     t.unassign
     clear_screen
     ticket_detail(t)
-    puts "\nTicket unassigned. Press enter"
+    puts "\nTicket unassigned. Press enter to continue."
     gets
     clear_screen
     ticket_detail(t)
@@ -58,7 +58,7 @@ def ticket_detail_menu(t)
     clear_screen
     puts "\nINCOMPLETE TICKETS ASSIGNED TO #{courier.name.upcase}\n"
     list_tickets(courier.incomplete_tickets_by_courier)
-    puts "\nPress enter to return to ticket detail"
+    puts "\nPress enter to return to ticket detail."
     gets
     clear_screen
     ticket_detail(t)
@@ -68,13 +68,13 @@ def ticket_detail_menu(t)
     clear_screen
     puts "\nINCOMPLETE TICKETS BY #{client.name.upcase}\n"
     list_tickets(client.incomplete_tickets_by_client)
-    puts "\nPress enter to return to ticket detail"
+    puts "\nPress enter to return to ticket detail."
     gets
     clear_screen
     ticket_detail(t)
     ticket_detail_menu(t)
   when 's'
-    puts "\nSearch not implemented. Press enter"
+    puts "\nSearch not implemented. Press enter to continue."
     gets
     clear_screen
     ticket_detail(t)
@@ -91,7 +91,7 @@ def ticket_detail_menu(t)
   when 'x'
     exit
   else
-    puts 'Invalid Input. Press enter to continue'
+    puts 'Invalid Input. Press enter to continue.'
     gets
     clear_screen
     ticket_detail(t)

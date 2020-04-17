@@ -43,8 +43,9 @@ def new_client_form
   puts person
   puts phone
 
-  puts "\n[y] Yes! Create Client."
-  puts "[n] No! I goofed!"
+  puts "\n  [y] Yes! Create Client."
+  puts "  [n] No! I goofed!"
+  puts "  [m] Cancel input and return to MAIN MENU."
   res = gets.chomp.downcase
 
   case res
@@ -53,11 +54,13 @@ def new_client_form
                   address: addr,
                   contact_person: person,
                   contact_phone: phone)
-    puts "#{c.name} created! Press enter to exit"
+    puts "#{c.name} created! Press enter to continue."
     gets.chomp
   when 'n'
     puts "That's okay! Lets try again."
     new_client_form
+  when 'm'
+    main_menu
   else
     puts "Ooops! That was a yes or no question, and your developers haven't handled this yet, so you've gotta start over."
     new_client_form

@@ -33,7 +33,7 @@ def self.menu(data)
   puts "  [m] Back to MAIN MENU"
   puts "  [i] Switch to CLIENT MENU"
   puts "  [c] Switch to COURIERS MENU"
-  puts "  [x] EXIT Application"
+  puts "  [x] EXIT application"
 end
 
 def self.form(data:nil)
@@ -81,14 +81,14 @@ def self.form(data:nil)
     while res.length == 0 do
       puts "\nSELECT CLIENT FOR NEW TICKET"
       puts "  [:id] Show client details by ID"
-      puts "  [a] ALL Clients"
-      puts "  [t] Clients with open TICKETS"
-      puts "  [b] Go BACK to New Ticket Form"
-      puts "WARNING: FOLLOWING OPIONS WILL DISCARD THIS TICKET"
+      puts "  [a] ALL clients"
+      puts "  [t] clients with open TICKETS"
+      puts "  [b] Go BACK to new ticket form"
+      puts "WARNING: FOLLOWING OPTIONS WILL DISCARD THIS TICKET"
       puts "  [c] Switch to COURIERS MENU"
       puts "  [m] Switch to MAIN MENU"
       puts "  [t] Back to TICKETS MENU"
-      puts "  [x] EXIT Application"
+      puts "  [x] EXIT application"
       print "\n> "
       res = gets.chomp
       case res
@@ -196,12 +196,12 @@ def self.form(data:nil)
     clear_screen
     NewTicket.form(data:data)
   when '5'
-    puts 'Datetime methods not implemented. Press enter'
+    puts 'Datetime methods not implemented. Press enter to continue.'
     gets
     clear_screen
     NewTicket.form(data:data)
   when '6'
-    puts 'Datetime methods not implemented. Press enter'
+    puts 'Datetime methods not implemented. Press enter to continue.'
     gets
     clear_screen
     NewTicket.form(data:data)
@@ -240,14 +240,14 @@ def self.form(data:nil)
                   client_id: client.id
                 )
       clear_screen
-      puts "\nTicket saved! Press enter."
+      puts "\nTicket saved! Press enter to continue."
       gets
       clear_screen
       ticket_detail(t)
       ticket_detail_menu(t)
     else
       puts 'Please make sure all required fields are filled out!'
-      puts 'press enter'
+      puts 'Press enter to continue.'
       gets
       clear_screen
       NewTicket.form(data:data)

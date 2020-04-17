@@ -1,4 +1,4 @@
-require_relative "../../../config/environment.rb"    
+require_relative "../../../config/environment.rb"
 
 def ticket_complete_form(t)
   clear_screen
@@ -18,7 +18,7 @@ def ticket_complete_form(t)
     if !t.courier_id
       puts "This ticket has not been assigned to a courier!"
       puts "Would you like to assign before completion?"
-      
+
       print "(y/n)> "
       res = gets.chomp.downcase
       puts "\n"
@@ -39,9 +39,9 @@ def ticket_complete_form(t)
     end
 
     # Get the POD
-    puts "Please enter the POD (Point-of-delivery)."
+    puts "Please enter the POD (point-of-delivery)."
     puts "e.g., 'Mrs. Smith, reception"
-    
+
     print "\n> "
     pod = gets.chomp
     puts "\n"
@@ -51,7 +51,7 @@ def ticket_complete_form(t)
     puts "\nCustom Delivery time not implemented. Defaulting to current time."
 
     # Allow for notes to be added to ticket
-    puts "\nAdd custom delivery notes or details? (Leave blank and press enter to skip)"
+    puts "\nAdd custom delivery notes or details? (Leave blank and press enter to skip.)"
     print "> "
     note = gets.chomp
     t.add_note(note) if note.length != 0
@@ -61,7 +61,7 @@ def ticket_complete_form(t)
     # Display ticket detail and exit
     clear_screen
     ticket_detail(t)
-    puts "\nTicket completed. Press enter to return to tickets menu"
+    puts "\nTicket completed. Press enter to return to tickets menu."
     gets
     clear_screen
     ticket_board_menu

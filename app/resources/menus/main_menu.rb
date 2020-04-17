@@ -30,15 +30,18 @@ def main_menu
     when "a"
       # Display about/help info, abridged README kinda thing
       puts "THE BOARD is an interactive courier board developed by Michelle Frattaroli"
-      puts "and Katharina Maldon. The menu navigation guides the dispatcher through a seamless"
-      puts "user experience, offering simple prompts every step of the way. THE BOARD makes"
-      puts "it easy to keep track of jobs, enter and update information, change the status"
-      puts "and details of exisiting couriers, clients, and tickets, and keep your operation"
-      puts "running smoothly."
+      puts "and Katharina Maldon."
+      puts "The menu navigation guides the dispatcher through a seamless user experience,"
+      puts "offering simple prompts every step of the way. THE BOARD makes it easy to"
+      puts "keep track of existing jobs, enter and update information, and change the"
+      puts "status and details of all your couriers, clients, and tickets."
+      puts "We keep your operation running smoothly."
+      puts ""
+      puts "Press enter to return to MAIN MENU."
       gets.chomp
       main_menu
     when "s"
-      puts "\nSearch not implemented, press enter to continue"
+      puts "\nSearch not implemented, press enter to continue."
       gets.chomp
       main_menu
     when "x"
