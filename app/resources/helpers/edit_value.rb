@@ -18,20 +18,20 @@ def edit_value(key:k,str:s,hash:c)
   key = key.to_sym
   puts "EDIT #{str.upcase}"
   print "Current #{str.downcase}: #{hash[key]}"
-  puts "Enter new #{str.upcase} or press ENTER to cancel"
+  puts "Enter new #{str.upcase} or press ENTER to cancel."
   print "\n> "
   res = gets.chomp
   puts "\n"
 
   if res.length == 0
     puts "#{str.upcase} Unchanged."
-    puts "Press Enter to Continue"
+    puts "Press enter to continue."
     gets
   else
     hash[key] = res
     hash.save
     puts "#{str.upcase} updated to #{hash[key]}."
-    puts "Press Enter to Continue"
+    puts "Press enter to continue."
     gets
   end
 end

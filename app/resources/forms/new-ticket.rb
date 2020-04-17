@@ -85,6 +85,7 @@ class NewTicket
     print "(y/n)> "
     confirm = gets.chomp.downcase
     clear_screen
+<<<<<<< HEAD
     confirm == 'y' ? true : false
   end
 
@@ -107,6 +108,62 @@ class NewTicket
         res = gets.chomp
         case res
         when 'a'
+=======
+    res = ''
+    while res.length == 0 do
+      puts "\nSELECT CLIENT FOR NEW TICKET"
+      puts "  [:id] Show client details by ID"
+      puts "  [a] ALL clients"
+      puts "  [t] clients with open TICKETS"
+      puts "  [b] Go BACK to new ticket form"
+      puts "WARNING: FOLLOWING OPTIONS WILL DISCARD THIS TICKET"
+      puts "  [c] Switch to COURIERS MENU"
+      puts "  [m] Switch to MAIN MENU"
+      puts "  [t] Back to TICKETS MENU"
+      puts "  [x] EXIT application"
+      print "\n> "
+      res = gets.chomp
+      case res
+      when 'a'
+        clear_screen
+        puts "\nALL CLIENTS:\n"
+        list_clients(Client.all)
+        res=''
+      when 't'
+        clear_screen
+        puts "\nCLIENTS WITH OPEN TICKETS:\n"
+        list_clients(Client.all.clients_with_incomplete_tickets)
+        res=''
+      when 'b'
+        clear_screen
+        NewTicket.form(data:data)
+      when 'c'
+        puts "DISCARD TICKET AND EXIT TO COURIERS MENU?"
+        print "(y/n)> "
+        res = gets.chomp.downcase
+        if res == 'y'
+          clear_screen
+          courier_board_menu
+        else
+          clear_screen
+          res = ''
+        end
+      when 'm'
+        puts "DISCARD TICKET AND EXIT TO MAIN MENU?"
+        print "(y/n)> "
+        res = gets.chomp.downcase
+        if res == 'y'
+          main_menu
+        else
+          clear_screen
+          res = ''
+        end
+      when 't'
+        puts "DISCARD TICKET AND EXIT TO TICKETS MENU?"
+        print "(y/n)> "
+        res = gets.chomp.downcase
+        if res == 'y'
+>>>>>>> 94b72ab577062a9f635d059203dcbd9dcc895a1b
           clear_screen
           puts "\nALL CLIENTS:\n"
           list_clients(Client.all)
@@ -156,6 +213,7 @@ class NewTicket
 
   def form
     clear_screen
+<<<<<<< HEAD
     menu
       print "\n> "
       res = gets.chomp.downcase
@@ -224,5 +282,122 @@ class NewTicket
       else
         form
       end
+=======
+    NewTicket.form(data:data)
+  when '5'
+    puts 'Datetime methods not implemented. Press enter to continue.'
+    gets
+    clear_screen
+    NewTicket.form(data:data)
+  when '6'
+    puts 'Datetime methods not implemented. Press enter to continue.'
+    gets
+    clear_screen
+    NewTicket.form(data:data)
+  when '7'
+    data[:rush] = !data[:rush]
+    clear_screen
+    NewTicket.form(data:data)
+  when '8'
+    data[:os] = !data[:os]
+    clear_screen
+    NewTicket.form(data:data)
+  when '9' # NOTES
+    clear_screen
+    NewTicket.menu(data)
+    print "\nNEW NOTE: > "
+    new_note = gets.chomp
+
+    data[:notes] += "#{new_note}\n"
+
+    clear_screen
+    NewTicket.form(data:data)
+  when 'save'
+    validation = (data[:pu_addr] && data[:pu_cont] && data[:drop_addr] && data[:drop_cont])
+    if validation
+      client = Client.create(name: "GUEST-#{Time.now.ctime}") if !client.id
+      t = Ticket.create(pickup_address: data[:pu_addr],
+                  pickup_contact: data[:pu_cont],
+                  dropoff_address: data[:drop_addr],
+                  dropoff_contact: data[:drop_cont],
+                  rush: data[:rush],
+                  notes: data[:notes],
+                  oversize: data[:os],
+                  time_ready: data[:time_ready],
+                  time_ordered: Time.now,
+                  time_due: data[:time_due],
+                  client_id: client.id
+                )
+      clear_screen
+      puts "\nTicket saved! Press enter to continue."
+      gets
+      clear_screen
+      ticket_detail(t)
+      ticket_detail_menu(t)
+    else
+      puts 'Please make sure all required fields are filled out!'
+      puts 'Press enter to continue.'
+      gets
+      clear_screen
+      NewTicket.form(data:data)
+    end
+  when 'i'
+    puts "DISCARD TICKET AND EXIT TO CLIENTS MENU?"
+    print "(y/n)> "
+    res = gets.chomp.downcase
+    if res == 'y'
+      clear_screen
+      client_board_menu
+    else
+      clear_screen
+      NewTicket.form(data:data)
+    end
+  when 't'
+    puts "DISCARD TICKET AND EXIT TO TICKETS MENU?"
+    print "(y/n)> "
+    res = gets.chomp.downcase
+    if res == 'y'
+      clear_screen
+      tivket_board_menu
+    else
+      clear_screen
+      NewTicket.form(data:data)
+    end
+  when 'c'
+    puts "DISCARD TICKET AND EXIT TO COURIERS MENU?"
+    print "(y/n)> "
+    res = gets.chomp.downcase
+    if res == 'y'
+      clear_screen
+      courier_board_menu
+    else
+      clear_screen
+      NewTicket.form(data:data)
+    end
+  when 'm'
+    puts "DISCARD TICKET AND EXIT TO MAIN MENU?"
+    print "(y/n)> "
+    res = gets.chomp.downcase
+    if res == 'y'
+      main_menu
+    else
+      clear_screen
+      NewTicket.form(data:data)
+    end
+  when 'x'
+    puts "DISCARD TICKET AND CLOSE APPLICATION?"
+    print "(y/n)> "
+    res = gets.chomp.downcase
+    if res == 'y'
+      clear_screen
+      exit
+    else
+      clear_screen
+      NewTicket.form(data:data)
+    end
+  else
+    clear_screen
+    NewTicket.form(data:data)
+>>>>>>> 94b72ab577062a9f635d059203dcbd9dcc895a1b
   end
 end

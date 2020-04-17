@@ -1,4 +1,4 @@
-require_relative "../../../config/environment.rb"    
+require_relative "../../../config/environment.rb"
 
 def ticket_edit_menu(t)
   clear_screen
@@ -23,14 +23,14 @@ def ticket_edit_menu(t)
   puts "  [a] Assign to courier" if !t.courier_id
   puts "  [delete] DELETE Ticket"
   puts ""
-  puts "  [b] BACK to Ticket Detail"
-  puts "  [t] BACK to TICKETS Menu"
+  puts "  [b] BACK to ticket detail"
+  puts "  [t] Back to TICKETS Menu"
   puts "  [m] Back to MAIN MENU"
-  puts "  [x] EXIT Application"
+  puts "  [x] EXIT application"
 
   print "\n> "
   res = gets.chomp.downcase
-  
+
   clear_screen
 
   case res
@@ -59,7 +59,7 @@ def ticket_edit_menu(t)
       t.unassign
       t.save
       ticket_detail(t)
-      puts "Status updated, Press enter"
+      puts "Status updated, press enter to continue."
       gets
       clear_screen
       ticket_edit_menu(t)
@@ -68,7 +68,7 @@ def ticket_edit_menu(t)
       t.unassign
       t.save
       ticket_detail(t)
-      puts "Status updated, Press enter"
+      puts "Status updated, press enter to continue."
       gets
       clear_screen
       ticket_edit_menu(t)
@@ -76,7 +76,7 @@ def ticket_edit_menu(t)
       t.status = 'incomplete'
       t.save
       ticket_detail(t)
-      puts "Status updated, Press enter"
+      puts "Status updated, press enter to continue."
       gets
       clear_screen
       ticket_edit_menu(t)
@@ -85,7 +85,7 @@ def ticket_edit_menu(t)
       t.status = 'complete'
       t.save
       ticket_detail(t)
-      puts "Status updated, Press enter"
+      puts "Status updated, press enter to continue."
       gets
       clear_screen
       ticket_edit_menu(t)
@@ -127,7 +127,7 @@ def ticket_edit_menu(t)
     t.save
     clear_screen
     ticket_detail(t)
-    puts "\nAddress Updated. Press enter"
+    puts "\nAddress Updated. Press enter to continue."
     gets
     clear_screen
     ticket_detail(t)
@@ -140,34 +140,34 @@ def ticket_edit_menu(t)
     t.save
     clear_screen
     ticket_detail(t)
-    puts "\nContact Updated. Press enter"
+    puts "\nContact Updated. Press enter to continue."
     gets
     clear_screen
     ticket_detail(t)
     ticket_edit_menu(t)
   when "td"
-    puts "Change times not implemented. Press enter"
+    puts "Change times not implemented. Press enter to continue."
     gets
     clear_screen
     ticket_detail(t)
     ticket_edit_menu(t)
   when "tr"
-    puts "Change times not implemented. Press enter"
+    puts "Change times not implemented. Press enter to continue."
     gets
     clear_screen
     ticket_detail(t)
     ticket_edit_menu(t)
   when "os"
-    t.oversize = !t.oversize 
+    t.oversize = !t.oversize
     t.save
-    puts "Oversize set to #{t.oversize.to_s}. Press enter"
+    puts "Oversize set to #{t.oversize.to_s}. Press enter to continue."
     gets
     clear_screen
     ticket_detail(t)
     ticket_edit_menu(t)
   when "en"
-    puts "Edit note not implemented. Use 'an' to add to note"
-    puts "Press enter"
+    puts "Edit note not implemented. Use 'an' to add to note."
+    puts "Press enter to continue."
     gets.chomp
     clear_screen
     ticket_detail(t)
@@ -178,25 +178,25 @@ def ticket_edit_menu(t)
     note = gets.chomp
     t.add_note(note)
     puts "Notes: #{t.notes}"
-    puts "Press enter"
+    puts "Press enter to continue."
     gets
     clear_screen
     ticket_detail(t)
     ticket_edit_menu(t)
   when "c"
-    puts "Not implimented. Press enter"
+    puts "Not implimented. Press enter to continue."
     gets
     clear_screen
     ticket_detail(t)
     ticket_edit_menu(t)
   when "u"
     t.unassign
-    puts "Unassigned. Press enter"
+    puts "Unassigned. Press enter to continue."
     clear_screen
     ticket_detail(t)
     ticket_edit_menu(t)
   when "a"
-    puts "Not implimented. Press enter"
+    puts "Not implimented. Press enter to continue."
     gets
     clear_screen
     ticket_detail(t)
@@ -216,7 +216,7 @@ def ticket_edit_menu(t)
     exit
   else
     clear_screen
-    puts "Invalid response. Press enter to continue"
+    puts "Invalid response. Press enter to continue."
     gets
     clear_screen
     ticket_edit_menu(t)

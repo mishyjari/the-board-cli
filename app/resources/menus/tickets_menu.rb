@@ -3,19 +3,19 @@ require_relative "../../../config/environment.rb"
 def ticket_board_menu
   puts ""
   puts "\nOPTIONS:"
-  puts "  [:id] Enter Job ID Number to Edit, Assign or Complete Ticket."
-  puts "  [a] View ALL INCOMPELTE / ACTIVE Tickets"
-  puts "  [u] View only UNASSIGNED Tickets"
-  puts "  [p] View only PENDING Tickets"
+  puts "  [:id] Enter job ID number to edit, assign or complete ticket"
+  puts "  [a] View ALL INCOMPELTE / ACTIVE tickets"
+  puts "  [u] View only UNASSIGNED tickets"
+  puts "  [p] View only PENDING tickets"
   puts "  [t] View all tickets TODAY"
   puts ""
-  puts "  [n] Create a NEW Ticket"
+  puts "  [n] Create a NEW ticket"
   puts ""
   puts "  [s] Switch to SEARCH MENU"
-  puts "  [c] Switch to the COURIER MENU."
-  puts "  [i] Switch to CLIENT MENU."
-  puts "  [b] or [m] go BACK to the MAIN MENU."
-  puts "  [x] Enter 'x' to exit."
+  puts "  [c] Switch to the COURIER MENU"
+  puts "  [i] Switch to CLIENT MENU"
+  puts "  [m] Go back to the MAIN MENU"
+  puts "  [x] EXIT application"
 
   print "\n> "
   res = gets.chomp.downcase
@@ -43,14 +43,19 @@ def ticket_board_menu
       list_tickets(Ticket.all.all_jobs_today)
       ticket_board_menu
     when "s"
-      puts "\nSearch not implemented, press enter to continue"
+      puts "\nSearch not implemented, press enter to continue."
       gets.chomp
       clear_screen
       ticket_board_menu
     when "n"
       clear_screen
+<<<<<<< HEAD
       NewTicket.new.form
     when "b" || 'm'
+=======
+      NewTicket.form
+    when 'm'
+>>>>>>> 94b72ab577062a9f635d059203dcbd9dcc895a1b
       main_menu
     when "c"
       clear_screen

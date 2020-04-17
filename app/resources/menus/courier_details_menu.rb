@@ -7,11 +7,11 @@ def courier_detail_menu(c)
   puts "  [a] Mark courier INACTIVE" if c.active
   puts "  [t] All TICKETS TODAY assigned to #{c.name}"
   puts "  [d] Tickets by DATE assigned to #{c.name}"
-  puts "  [e] EDIT Details for #{c.name}"
+  puts "  [e] EDIT details for #{c.name}"
   puts ""
   puts "  [c] Back to COURIERS MENU"
   puts "  [m] Back to MAIN MENU"
-  puts "  [x] EXIT Application"
+  puts "  [x] EXIT application"
 
   print "\n> "
   res = gets.chomp.downcase
