@@ -49,13 +49,8 @@ def ticket_board_menu
       ticket_board_menu
     when "n"
       clear_screen
-<<<<<<< HEAD
       NewTicket.new.form
     when "b" || 'm'
-=======
-      NewTicket.form
-    when 'm'
->>>>>>> 94b72ab577062a9f635d059203dcbd9dcc895a1b
       main_menu
     when "c"
       clear_screen

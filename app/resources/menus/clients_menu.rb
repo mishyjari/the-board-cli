@@ -33,8 +33,7 @@ def client_board_menu
     client_board_menu
   when "n"
     clear_screen
-    new_client_form
-    client_board_menu
+    NewClient.new.form
   when "m"
     main_menu
   when "x"

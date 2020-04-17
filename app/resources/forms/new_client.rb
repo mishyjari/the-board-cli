@@ -1,70 +1,118 @@
 # CLI Tool to Create New Client Instance
 require_relative "../../../config/environment.rb"
 
-def new_client_form
-  puts "Create New Client Tool\n"
-
-  print "Client Name: "
-  name = gets.chomp
-  while name.length == 0 do
-    puts 'Client name can not be blank!'
-    print 'Name: '
-    name = gets.chomp
+class NewClient
+  attr_accessor :name, :address, :contact_phone, :contact_person
+  def initialize
+    @name = nil
+    @address = nil
+    @contact_phone = nil
+    @contact_person = nil
   end
 
-  print "Full Client Address: "
-  addr = gets.chomp
-  while addr.length == 0 do
-    puts 'Address can not be blank!'
-    print 'Address: '
-    addr = gets.chomp
+  def menu
+    puts "\n====================  NEW CLIENT  ==================="
+    puts "[0] NAME: #{@name if not nil}"
+    puts "[1] ADDRESS: #{@address if not nil}"
+    puts "[2] CONTACT PERSON: #{@contact_person if not nil}"
+    puts "[3] CONTACT PHONE: #{@contact_phone if not nil}"
+    puts ""
+    puts "[save] Type 'save' to SAVE THIS CLIENT"
+    puts "=====================================================\n"
+    puts "  [t] Switch to TICKETS MENU"
+    puts "  [m] Back to MAIN MENU"
+    puts "  [i] Back to CLIENT MENU"
+    puts "  [c] Switch to COURIERS MENU"
+    puts "  [x] EXIT Application"
   end
 
-  print "Contact Person: "
-  person = gets.chomp
-  while person.length == 0 do
-    puts 'Contact Person can not be blank!'
-    print 'Contact Person: '
-    person = gets.chomp
+  def form
+    clear_screen
+    menu
+
+    print "\n> "
+    res = gets.chomp.downcase
+
+    case res
+    when '0'
+      @name = update("NAME")
+      form
+    when '1'
+      @address = update('ADDRESS')
+      form
+    when '2'
+      @contact_person = update('CONTACT PERSON')
+      form
+    when '3'
+      @contact_phone = update('CONTACT PHONE')
+      form
+    when 'save'
+      create_client
+    when 'm'
+      clear_screen
+      confirm_exit('main menu') ? main_menu : form
+    when 't'
+      clear_screen
+      confirm_exit('tickets menu') ? ticket_board_menu : form
+    when 'i'
+      clear_screen
+      confirm_exit('clients menu') ? client_board_menu : form
+    when 'c'
+      clear_screen
+      confirm_exit('couriers menu') ? courier_board_menu : form
+    when 'x'
+      clear_screen
+      confirm_exit('system console') ? exit : form
+    else
+      form
+    end
   end
 
-  print "Contact Phone Number: "
-  phone = gets.chomp
-  while phone.length == 0 do
-    puts 'Phone number can not be blank!'
-    print 'Contact Phone: '
-    phone = gets.chomp
+  def create_client
+    if validate
+      client = Client.create(
+        name: @name,
+        address: @address,
+        contact_person: @contact_person,
+        contact_phone: @contact_phone
+      )
+      clear_screen
+      puts "\nClient saved! Redirecting to the client detail page..."
+      puts "Press enter."
+      gets
+      clear_screen
+      client_detail(client)
+      client_detail_menu(client)
+    else
+      clear_screen
+      puts "\nALL FIELDS REQUIRED!"
+      puts "Press enter."
+      gets
+      form
+    end
   end
 
-  puts "\nDoes this look right?\n"
+  def validate
+    @name && (@name.length > 0) &&
+    @address && (@address.length > 0) &&
+    @contact_phone && (@contact_phone.length > 0) &&
+    @contact_person && (@contact_person.length > 0)
+  end
 
-  puts name
-  puts addr
-  puts person
-  puts phone
+  def confirm_exit(str)
+    clear_screen
+    puts "\nDISCARD CLIENT AND EXIT TO #{str.upcase}?"
+    print "(y/n)> "
+    confirm = gets.chomp.downcase
+    clear_screen
+    confirm == 'y' ? true : false
+  end
 
-  puts "\n  [y] Yes! Create Client."
-  puts "  [n] No! I goofed!"
-  puts "  [m] Cancel input and return to MAIN MENU."
-  res = gets.chomp.downcase
-
-  case res
-  when 'y'
-    c = Client.create(name: name,
-                  address: addr,
-                  contact_person: person,
-                  contact_phone: phone)
-    puts "#{c.name} created! Press enter to continue."
-    gets.chomp
-  when 'n'
-    puts "That's okay! Lets try again."
-    new_client_form
-  when 'm'
-    main_menu
-  else
-    puts "Ooops! That was a yes or no question, and your developers haven't handled this yet, so you've gotta start over."
-    new_client_form
+  def update(prompt)
+    clear_screen
+    self.menu
+    print "\n#{prompt}: > "
+    res = gets.chomp
+    res
   end
 end
-
-#new_client_form
