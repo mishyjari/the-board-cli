@@ -65,13 +65,13 @@ def random_completed_ticket
     num_clients = Client.all.length
     num_clients == 0 ? Client.create(name: "GUEST-#{Time.now.ctime}") : Client.all[rand(num_clients)]
   end
-  def courier
+  def courier_id
     num_couriers = Courier.all.length
-    num_couriers == 0 ? nil : Courier.all[rand(num_couriers)]
+    num_couriers == 0 ? nil : Courier.all[rand(num_couriers)].id
   end
   Ticket.create(
     client_id: client.id,
-    courier_id: courier,
+    courier_id: courier_id,
     pickup_address: client.address,
     pickup_contact: client.contact_phone,
     dropoff_address: Faker::Address.street_address,
