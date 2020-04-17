@@ -19,14 +19,14 @@ def client_detail_menu(c)
   puts "\nOPTIONS:"
   puts "  [n] Edit NAME"
   puts "  [a] Edit ADDRESS"
-  puts "  [c] Edit CONTACT Person"
-  puts "  [p] Edit Contact PHONE"
+  puts "  [c] Edit CONTACT person"
+  puts "  [p] Edit contact PHONE"
   puts "  [t] View active client TICKETS"
   puts "  [s] SEARCH for client tickets by date"
   puts "  [delete] DELETE client"
-  puts "  [i] BACK to Client Board"
-  puts "  [m] Back to MAIN menu"
-  puts "  [x] EXIT Application"
+  puts "  [i] Back to CLIENT BOARD"
+  puts "  [m] Back to MAIN MENU"
+  puts "  [x] EXIT application"
 
   print "\n> "
   res = gets.chomp.downcase
@@ -52,17 +52,17 @@ def client_detail_menu(c)
   when "t"
     # View Incomplete Tix for this client
     refresh(c)
-    puts "Incomplete tickets by client not implimented. Press enter to continue"
+    puts "Incomplete tickets by client not implimented. Press enter to continue."
     gets.chomp
     refresh_all(c)
   when "s"
     refresh(c)
-    puts "Client ticket search not implimented. Press enter to continue"
+    puts "Client ticket search not implimented. Press enter to continue."
     gets.chomp
     refresh_all(c)
   when "delete"
     refresh(c)
-    puts "Delete client not implimented. Press enter to continue"
+    puts "Delete client not implimented. Press enter to continue."
     gets.chomp
     refresh_all(c)
   when "i"

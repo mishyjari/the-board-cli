@@ -4,12 +4,12 @@ def client_board_menu
   puts ""
   puts "\nOPTIONS:"
   puts "  [:id] Show client details by ID"
-  puts "  [a] ALL Clients"
+  puts "  [a] ALL clients"
   puts "  [t] Clients with open TICKETS"
   puts "  [s] SEARCH for client by name"
-  puts "  [n] Create NEW Client"
+  puts "  [n] Create NEW client"
   puts "  [m] Back to MAIN MENU"
-  puts "  [x] EXIT Application"
+  puts "  [x] EXIT application"
 
   print "\n> "
   res = gets.chomp.downcase

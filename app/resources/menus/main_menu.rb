@@ -6,9 +6,9 @@ def main_menu
 
   puts "\nMAIN MENU\n"
   puts "OPTIONS:"
-  puts "  [t] TICKET Board"
-  puts "  [c] COURIER Board"
-  puts "  [i] CLIENT Board"
+  puts "  [t] TICKET board"
+  puts "  [c] COURIER board"
+  puts "  [i] CLIENT board"
   puts "  [s] SEARCH options"
   puts "  [a] ABOUT"
   puts "  [x] EXIT"
@@ -29,7 +29,12 @@ def main_menu
       client_board_menu
     when "a"
       # Display about/help info, abridged README kinda thing
-      puts "Not implimented: About Info. Press enter to continue"
+      puts "THE BOARD is an interactive courier board developed by Michelle Frattaroli"
+      puts "and Katharina Maldon. The menu navigation guides the dispatcher through a seamless"
+      puts "user experience, offering simple prompts every step of the way. THE BOARD makes"
+      puts "it easy to keep track of jobs, enter and update information, change the status"
+      puts "and details of exisiting couriers, clients, and tickets, and keep your operation"
+      puts "running smoothly."
       gets.chomp
       main_menu
     when "s"

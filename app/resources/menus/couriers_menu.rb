@@ -3,17 +3,17 @@ require_relative "../../../config/environment.rb"
 def courier_board_menu
   puts ""
   puts "\nOPTIONS"
-  puts "[:id] View Courier by ID"
+  puts "[:id] View courier by ID"
   puts "[c] List Active COURIERS"
-  puts "[a] List ALL Couriers"
-  puts "[r] List CLEAR Couriers"
+  puts "[a] List ALL couriers"
+  puts "[r] List CLEAR couriers"
   puts ""
-  puts "[n] Create NEW Courier"
+  puts "[n] Create NEW courier"
   puts ""
   puts "[i] Switch to CLIENT BOARD"
   puts "[t] Switch to TICKET BOARD"
   puts "[m] Return to MAIN MENU"
-  puts "[x] EXIT Application"
+  puts "[x] EXIT application"
 
   print "\n> "
   res = gets.chomp.downcase
@@ -40,7 +40,7 @@ def courier_board_menu
     courier_board_menu
   when "n"
     # New Courier
-    puts "Feature not implemented. Press Enter to continue"
+    puts "Feature not implemented. Press enter to continue"
     gets.chomp
     clear_screen
     courier_board_menu
