@@ -35,7 +35,8 @@ class NewTicket
                         time_due: @time_due,
                         client_id: @client.id )
       clear_screen
-      puts "\nTicket saved! Press enter."
+      puts "\nTicket saved! Redirecting to ticket detail page..."
+      puts "Press enter."
       gets
       clear_screen
       ticket_detail(t)
@@ -199,6 +200,9 @@ class NewTicket
         form
       when 'save'
         create_ticket
+      when 'm'
+        refresh
+        confirm_exit('main menu') ? main_menu : form
       when 'i'
         refresh
         confirm_exit('clients menu') ? client_board_menu : form
@@ -208,9 +212,6 @@ class NewTicket
       when 'c'
         refresh
         confirm_exit('couriers menu') ? courier_board_menu : form
-      when 'm'
-        refresh
-        confirm_exit('main menu') ? main_menu : form
       when 'x'
         refresh
         confirm_exit('system console') ? exit : form

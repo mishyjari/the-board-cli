@@ -40,10 +40,7 @@ def courier_board_menu
     courier_board_menu
   when "n"
     # New Courier
-    puts "Feature not implemented. Press enter to continue"
-    gets.chomp
-    clear_screen
-    courier_board_menu
+    NewCourier.new.form
   when "i"
     clear_screen
     client_board_menu
