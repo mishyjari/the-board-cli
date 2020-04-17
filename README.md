@@ -45,3 +45,7 @@ The app will open and present the MAIN MENU:
 Menus are navigated via text input: simply select the letter in front of the desired option to move into sub menus and forms. Core functionality includes viewing all tickets, clients, and couriers, divided into pending/assigned/complete and active/inactive, all packages by client or courier, flags for late tickets, and individual search. You can create, view, edit, or delete tickets, clients, and couriers.
 
 
+
+  *---- This project is licensed under the terms of the MIT license. ----*
+
+
