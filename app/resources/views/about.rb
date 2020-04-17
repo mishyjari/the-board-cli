@@ -12,6 +12,7 @@ def about
   puts "  - Kat Maldon"
   puts ""
   puts ""
+  puts "  'THE BOARD' is an interactive CLI application designed for courier services."
   puts "  The menu navigation guides the dispatcher through a seamless user experience,"
   puts "  offering simple prompts every step of the way. 'THE BOARD' makes it easy to"
   puts "  keep track of existing jobs, enter and update information, and change the"
