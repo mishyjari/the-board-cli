@@ -20,10 +20,10 @@ class NewClient
     puts "[save] Type 'save' to SAVE THIS CLIENT"
     puts "=====================================================\n"
     puts "  [t] Switch to TICKETS MENU"
-    puts "  [m] Back to MAIN MENU"
     puts "  [i] Back to CLIENT MENU"
     puts "  [c] Switch to COURIERS MENU"
-    puts "  [x] EXIT Application"
+    puts "  [m] Back to MAIN MENU"
+    puts "  [x] EXIT application"
   end
 
   def form
@@ -78,7 +78,7 @@ class NewClient
       )
       clear_screen
       puts "\nClient saved! Redirecting to the client detail page..."
-      puts "Press enter."
+      puts "Press enter to continue."
       gets
       clear_screen
       client_detail(client)
@@ -86,7 +86,7 @@ class NewClient
     else
       clear_screen
       puts "\nALL FIELDS REQUIRED!"
-      puts "Press enter."
+      puts "Press enter to continue."
       gets
       form
     end

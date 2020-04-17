@@ -10,19 +10,19 @@ class NewCourier
   end
 
   def menu
-    puts "\n====================  NEW CLIENT  ==================="
+    puts "\n====================  NEW COURIER  ==================="
     puts "[0] NAME: #{@name if not nil}"
     puts "[1] ACTIVE? #{active.to_s}"
     puts "[2] PHONE: #{@phone if not nil}"
     puts "[3] EMAIL: #{@email if not nil}"
     puts ""
-    puts "[save] Type 'save' to SAVE THIS CLIENT"
+    puts "[save] Type 'save' to SAVE THIS COURIER"
     puts "=====================================================\n"
     puts "  [t] Switch to TICKETS MENU"
-    puts "  [m] Back to MAIN MENU"
     puts "  [i] Back to CLIENT MENU"
     puts "  [c] Switch to COURIERS MENU"
-    puts "  [x] EXIT Application"
+    puts "  [m] Back to MAIN MENU"
+    puts "  [x] EXIT application"
   end
 
   def form
@@ -76,7 +76,7 @@ class NewCourier
           email: @email
         )
       clear_screen
-      puts "\nCourier saved! Redirecting to the courierdetail page..."
+      puts "\nCourier saved! Redirecting to the courier detail page..."
       puts "Press enter."
       gets
       clear_screen

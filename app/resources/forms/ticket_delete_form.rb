@@ -1,4 +1,4 @@
-require_relative "../../../config/environment.rb"    
+require_relative "../../../config/environment.rb"
 
 def ticket_delete_form(t)
   clear_screen
@@ -17,7 +17,7 @@ def ticket_delete_form(t)
   if res == t.id
     t.delete
     puts "Ticket deleted. Hope you meant it, cause it's gone."
-    puts "Press enter to return to tickets menu"
+    puts "Press enter to return to tickets menu."
     gets
     clear_screen
     ticket_board_menu

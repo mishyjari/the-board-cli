@@ -43,7 +43,7 @@ class NewTicket
       ticket_detail_menu(t)
     else
       puts 'Please make sure all required fields are filled out!'
-      puts 'press enter'
+      puts 'Press enter to continue.'
       gets
       form
     end
@@ -68,15 +68,15 @@ class NewTicket
     puts "[9] NOTES: #{@notes}"
     puts ""
     if client[:name] != "Guest" && client.has_contact_info
-      puts "[pick] Use Client's Information for PICKUP INFORMATION"
-      puts "[drop] Use Client's Information for DROPOFF INFORMATION"
+      puts "[pick] Use client's information for PICKUP INFORMATION"
+      puts "[drop] Use client's information for DROPOFF INFORMATION"
     end
     puts "[save] Type 'save' to SAVE THIS TICKET"
     puts "========================================================\n"
     puts "  [t] BACK to TICKETS MENU"
-    puts "  [m] Back to MAIN MENU"
     puts "  [i] Switch to CLIENT MENU"
     puts "  [c] Switch to COURIERS MENU"
+    puts "  [m] Back to MAIN MENU"
     puts "  [x] EXIT Application"
   end
 
@@ -94,16 +94,16 @@ class NewTicket
       res = ''
       while res.length == 0 do
         puts "\nSELECT CLIENT FOR NEW TICKET"
-        puts "  [:id] :ient details by ID"
-        puts "  [a] ALL Clients"
+        puts "  [:id] client details by ID"
+        puts "  [a] ALL clients"
         puts "  [t] Clients with open TICKETS"
-        puts "  [b] Go BACK to New Ticket Form"
+        puts "  [b] Go BACK to new ticket form"
         puts "WARNING: FOLLOWING OPIONS WILL DISCARD THIS TICKET"
-        puts "  [i] Swirch to CLIENTS MENU"
+        puts "  [i] Switch to CLIENTS MENU"
         puts "  [c] Switch to COURIERS MENU"
-        puts "  [m] Switch to MAIN MENU"
         puts "  [t] Back to TICKETS MENU"
-        puts "  [x] EXIT Application"
+        puts "  [m] Back to MAIN MENU"
+        puts "  [x] EXIT application"
         print "\n> "
         res = gets.chomp
         case res
@@ -178,11 +178,11 @@ class NewTicket
         @drop_cont = update('DROPOFF CONTACT')
         form
       when '5'
-        puts 'Datetime methods not implemented. Press enter'
+        puts 'Datetime methods not implemented. Press enter to continue.'
         gets
         form
       when '6'
-        puts 'Datetime methods not implemented. Press enter'
+        puts 'Datetime methods not implemented. Press enter to continue.'
         gets
         form
       when '7'
@@ -208,7 +208,7 @@ class NewTicket
         confirm_exit('clients menu') ? client_board_menu : form
       when 't'
         refresh
-        confirm_exit('ticketss menu') ? ticket_board_menu : form
+        confirm_exit('tickets menu') ? ticket_board_menu : form
       when 'c'
         refresh
         confirm_exit('couriers menu') ? courier_board_menu : form
