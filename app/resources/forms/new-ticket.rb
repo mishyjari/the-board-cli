@@ -41,11 +41,7 @@ def self.form(data:nil)
 
   if !data
     data = {
-      client: {
-        name: 'Guest',
-        has_contact_info: false,
-        id: 99999
-      },
+      client: { name: 'Guest' },
       pu_addr: nil,
       pu_cont: nil,
       drop_addr: nil,
@@ -117,6 +113,7 @@ def self.form(data:nil)
           clear_screen
           courier_board_menu
         else
+          clear_screen
           res = ''
         end
       when 'm'
@@ -126,6 +123,7 @@ def self.form(data:nil)
         if res == 'y'
           main_menu
         else
+          clear_screen
           res = ''
         end
       when 't'
@@ -136,6 +134,7 @@ def self.form(data:nil)
           clear_screen
           tickets_board_menu
         else
+          clear_screen
           res = ''
         end
       when 'x'
@@ -145,6 +144,7 @@ def self.form(data:nil)
         if res == 'y'
           courier_board_menu
         else
+          clear_screen
           res = ''
         end
       else
@@ -154,6 +154,7 @@ def self.form(data:nil)
           clear_screen
           NewTicket.form(data:data)
         rescue
+          clear_screen
           res = ""
         end
     end
@@ -225,18 +226,18 @@ def self.form(data:nil)
   when 'save'
     validation = (data[:pu_addr] && data[:pu_cont] && data[:drop_addr] && data[:drop_cont])
     if validation
-      c = Client.create(name: "GUEST-#{Time.now.ctime}")
+      client = Client.create(name: "GUEST-#{Time.now.ctime}") if !client.id
       t = Ticket.create(pickup_address: data[:pu_addr],
                   pickup_contact: data[:pu_cont],
-                  dropoff_address: data[:du_addr],
-                  dropoff_contact: data[:du_cont],
+                  dropoff_address: data[:drop_addr],
+                  dropoff_contact: data[:drop_cont],
                   rush: data[:rush],
                   notes: data[:notes],
                   oversize: data[:os],
                   time_ready: data[:time_ready],
                   time_ordered: Time.now,
                   time_due: data[:time_due],
-                  client_id: c.id
+                  client_id: client.id
                 )
       clear_screen
       puts "\nTicket saved! Press enter."
