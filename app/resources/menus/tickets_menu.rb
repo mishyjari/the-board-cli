@@ -15,7 +15,7 @@ def ticket_board_menu
   puts "  [c] Switch to the COURIER MENU"
   puts "  [i] Switch to CLIENT MENU"
   puts "  [m] Go back to the MAIN MENU"
-  puts "  [x] Enter 'x' to exit"
+  puts "  [x] EXIT application"
 
   print "\n> "
   res = gets.chomp.downcase
