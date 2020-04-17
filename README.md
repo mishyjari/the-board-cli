@@ -79,6 +79,6 @@ The Ticket model takes in pickup and drop off information, delivery status, deta
 
 
 #### **License:**
-This project is licensed under the terms of the MIT license.
+This project is licensed under the terms of the MIT license. Please refer to `LICENSE` for full use details.
 
 
