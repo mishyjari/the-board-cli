@@ -5,10 +5,10 @@ def ticket_assign_menu(t)
   puts "\nOPTIONS"
   puts "  [:id] Enter the ID of the courier to be assigned"
   puts ""
-  puts "  [c] Show all active couriers"
-  puts "  [r] Show all clear couriers"
+  puts "  [c] Show all active COURIERS"
+  puts "  [r] Show all  CLEAR couriers"
   puts ""
-  puts "  [b] Return to details view for this ticket without assigning"
+  puts "  [d] Return to DETAILS view for this ticket without assigning"
 
   print "\n> "
   res = gets.chomp.downcase
@@ -27,7 +27,7 @@ def ticket_assign_menu(t)
     puts "\nCLEAR COURIERS\n"
     list_couriers(Courier.all.clear_couriers)
     ticket_assign_menu(t)
-  when 'b'
+  when 'd'
     clear_screen
     ticket_detail(t)
     ticket_detail_menu(t)

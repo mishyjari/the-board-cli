@@ -4,7 +4,7 @@ def courier_board_menu
   puts ""
   puts "\nOPTIONS"
   puts "[:id] View Courier by ID"
-  puts "[c] LIST Active Couriers"
+  puts "[c] List Active COURIERS"
   puts "[a] List ALL Couriers"
   puts "[r] List CLEAR Couriers"
   puts ""

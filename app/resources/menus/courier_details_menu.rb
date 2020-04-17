@@ -9,8 +9,8 @@ def courier_detail_menu(c)
   puts "  [d] Tickets by DATE assigned to #{c.name}"
   puts "  [e] EDIT Details for #{c.name}"
   puts ""
-  puts "  [b] BACK to Couriers Menu"
-  puts "  [m] BACK to Main Menu"
+  puts "  [c] Back to COURIERS MENU"
+  puts "  [m] Back to MAIN MENU"
   puts "  [x] EXIT Application"
 
   print "\n> "
@@ -45,7 +45,7 @@ def courier_detail_menu(c)
     clear_screen
     courier_detail(c)
     courier_edit_menu(c)
-  when "b"
+  when "c"
     clear_screen
     courier_board_menu
   when "m"

@@ -24,7 +24,7 @@ def client_detail_menu(c)
   puts "  [t] View active client TICKETS"
   puts "  [s] SEARCH for client tickets by date"
   puts "  [delete] DELETE client"
-  puts "  [b] BACK to Client Board"
+  puts "  [i] BACK to Client Board"
   puts "  [m] Back to MAIN menu"
   puts "  [x] EXIT Application"
 
@@ -65,7 +65,7 @@ def client_detail_menu(c)
     puts "Delete client not implimented. Press enter to continue"
     gets.chomp
     refresh_all(c)
-  when "b"
+  when "i"
     clear_screen
     client_board_menu
   when "m"
